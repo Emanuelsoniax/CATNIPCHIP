@@ -1,0 +1,4 @@
+#ifndef RADIALMASK_INCLUDED
+#define RADIALMASK_INCLUDED
+
+#endif
