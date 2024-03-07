@@ -26,7 +26,7 @@ namespace CATNIP
                 if (i >= MAX_RADIAL_MASKS)
                     break;
 
-                if (_masks[i] != null)
+                if (_masks[i] != null && _masks[i].Range > 0)
                 {
                     Vector3 pos = _masks[i].transform.position;
                     _maskData[maskCount] = new Vector4(pos.x, pos.y, pos.z, _masks[i].Range);
