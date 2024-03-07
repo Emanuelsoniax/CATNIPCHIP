@@ -12,6 +12,7 @@ public class RadialMask : MonoBehaviour
         set { _range = value; }
     }
 
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, _range);
