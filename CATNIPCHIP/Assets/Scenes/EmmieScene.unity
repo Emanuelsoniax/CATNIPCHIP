@@ -1112,11 +1112,15 @@ PrefabInstance:
       objectReference: {fileID: 336700669}
     - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: Smoothing
-      value: 0.99
+      value: 0.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
+      propertyPath: SmoothingLength
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: SmoothingSections
-      value: 24
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7938288405801476174, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: m_LocalPosition.x

@@ -37,6 +37,8 @@ public class SmoothAgentMovement : MonoBehaviour
 
     private Vector3 InfinityVector = new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
 
+    private Vector3[] debugLocations;
+
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
@@ -135,6 +137,8 @@ public class SmoothAgentMovement : MonoBehaviour
         }
 
         pathLocations = PostProcessPath(Curves, pathLocations);
+
+        debugLocations = pathLocations;
 
         return pathLocations;
     }
@@ -268,6 +272,24 @@ public class SmoothAgentMovement : MonoBehaviour
 
             Curves[0].Points[2] = Curves[0].Points[3] +
                 (nextDirection + lastDirection) * -1 * SmoothingLength;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (Application.isPlaying)
+        {
+            if (debugLocations.Length > 0)
+            {
+                {
+
+                    foreach (Vector3 position in debugLocations)
+                    {
+                        Gizmos.DrawSphere(position, 0.2f);
+                    }
+
+                }
+            }
         }
     }
 }
