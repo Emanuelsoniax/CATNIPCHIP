@@ -36,8 +36,6 @@ namespace CATNIP
 
             Shader.SetGlobalVectorArray("_RadialMasks", _maskData);
             Shader.SetGlobalInt("_RadialMasksAmount", maskCount);
-
-            //Shader.SetGlobalVector("_RadialMask", new Vector4(_transform.position.x, _transform.position.y, _transform.position.z, _range));
         }
     }
 }
