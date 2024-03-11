@@ -696,7 +696,7 @@ Transform:
   m_GameObject: {fileID: 818386402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.19, y: 0, z: -2.78}
+  m_LocalPosition: {x: 2.21, y: 0, z: 15.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -741,7 +741,7 @@ Transform:
   m_GameObject: {fileID: 883250170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.44, y: 0, z: 17.23}
+  m_LocalPosition: {x: 13.78, y: 0, z: 19.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -759,7 +759,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9dc1f1dc13e2345b0a4026190b376a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointType: 0
+  waypointType: 1
+--- !u!114 &1236055928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
+  m_PrefabInstance: {fileID: 5900390717836509268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c2428d0c17f6c418f89aa15195d64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1742012823
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9dc1f1dc13e2345b0a4026190b376a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointType: 0
+  waypointType: 1
 --- !u!1 &2140712640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,7 +1074,7 @@ Transform:
   m_GameObject: {fileID: 2144467510}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.56, y: 0, z: 7.94}
+  m_LocalPosition: {x: 2.54, y: 0, z: 2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1081,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9dc1f1dc13e2345b0a4026190b376a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointType: 1
+  waypointType: 0
 --- !u!1001 &5900390717836509268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1090,6 +1101,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 1236055928}
+    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
+      propertyPath: canMoveToNextWaypoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[0]
       value: 
@@ -1107,20 +1126,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1989806531}
     - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: Camera
-      value: 
-      objectReference: {fileID: 336700669}
-    - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: Smoothing
-      value: 0.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: SmoothingLength
-      value: 0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: SmoothingSections
-      value: 8
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 7938288405801476174, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: m_LocalPosition.x

@@ -302,18 +302,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c2428d0c17f6c418f89aa15195d64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
-  FloorLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  EnableClickToMove: 1
   UsePathSmoothing: 1
-  SmoothingLength: 1.22
-  SmoothingSections: 53
+  SmoothingLength: 0.62
+  SmoothingSections: 8
   SmoothingFactor: 0.67
   PathLocations: []
   PathIndex: 25
-  Smoothing: 0.25
+  Smoothing: 0.875
   TargetLerpSpeed: 1
   TargetDirection: {x: -0.15966861, y: 0, z: 0.9870951}
   MovementVector: {x: -0.1620852, y: 0, z: 0.98677677}

@@ -26,7 +26,29 @@ public class WaypointManager
         get { return waypointCollections[currentCollection].waypoints[currentWaypoint]; }
     }
 
-    public void SetNextWaypoint()
+    public Waypoint NextWaypoint
+    {
+        get { return GetNextWaypoint(); }
+    }
+
+    public bool CanMoveToNextWaypoint
+    {
+        get
+        {
+            switch (CurrentWaypoint.waypointType)
+            {
+                case Waypoint.WaypointType.PassThroughPoint:
+                    return true;
+                case Waypoint.WaypointType.IdlePoint:
+                    return false;
+                default:
+                    Debug.Log("Can't determine if the agent can move");
+                    return false;
+            }
+        }
+    }
+
+    public void SetNextWaypointAsCurrent()
     {
         if(currentWaypoint < waypointCollections[currentCollection].waypoints.Length)
         {
@@ -35,7 +57,12 @@ public class WaypointManager
         {
             currentCollection ++;
             currentWaypoint = 0;
-        } 
+        }
+
+        if (CurrentWaypoint.waypointType == Waypoint.WaypointType.IdlePoint)
+        {
+            CurrentWaypoint.StartCoroutine(CurrentWaypoint.WaitForEvent(KeyCode.K));
+        }
     }
 
     public Waypoint GetNextWaypoint()

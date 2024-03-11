@@ -1,13 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 
 public class Waypoint : MonoBehaviour
 {
-    private enum WaypointType { IdlePoint, PassThroughPoint }
+    public enum WaypointType { IdlePoint, PassThroughPoint }
     [SerializeField]
-    private WaypointType waypointType;
+    public WaypointType waypointType;
+
+    public IEnumerator WaitForEvent(KeyCode key)
+    {
+        yield return new WaitUntil(() => Input.GetKeyDown(key));
+
+        waypointType = WaypointType.PassThroughPoint;
+
+        yield return false;
+    }
+
+    public IEnumerator WaitForEvent(Vector3 position)
+    {
+        yield return new WaitUntil(() => transform.position == position);
+
+        waypointType = WaypointType.PassThroughPoint;
+
+        yield return false;
+    }
 
     private void OnDrawGizmos()
     {

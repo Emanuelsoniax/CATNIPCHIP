@@ -1,7 +1,7 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem;
-using System.Linq;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class SmoothAgentMovement : MonoBehaviour
@@ -39,6 +39,8 @@ public class SmoothAgentMovement : MonoBehaviour
 
     private Vector3[] debugLocations;
 
+    public event Action OnDestinationReached;
+
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
@@ -68,22 +70,11 @@ public class SmoothAgentMovement : MonoBehaviour
         }
     }
 
-    public void SetAgentDestination(Vector3 Position)
-    {
-        PathIndex = int.MaxValue;
-        Agent.SetDestination(Position);
-        PathLocations = Agent.path.corners;
-    }
-
-    private void Update()
-    {
-        MoveAgent();
-    }
-
-    private void MoveAgent()
+    public void MoveAgent()
     {
         if (PathIndex >= PathLocations.Length)
         {
+            OnDestinationReached.Invoke();
             return;
         }
 
@@ -94,6 +85,7 @@ public class SmoothAgentMovement : MonoBehaviour
 
             if (PathIndex >= PathLocations.Length)
             {
+                OnDestinationReached.Invoke();
                 return;
             }
         }
@@ -214,7 +206,7 @@ public class SmoothAgentMovement : MonoBehaviour
             {
                 Vector3 segmentDirection = (Path[index] - Path[lastIndex]).normalized;
                 float dot = Vector3.Dot(targetDirection, segmentDirection);
-                Debug.Log($"Target Direction: {targetDirection}. segment direction: {segmentDirection} = dot {dot} with index {index} & lastIndex {lastIndex}");
+                //Debug.Log($"Target Direction: {targetDirection}. segment direction: {segmentDirection} = dot {dot} with index {index} & lastIndex {lastIndex}");
                 if (dot <= SmoothingFactor)
                 {
                     Path[index] = InfinityVector;
@@ -279,15 +271,11 @@ public class SmoothAgentMovement : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            if (debugLocations.Length > 0)
+            if (debugLocations.Length >= 0)
             {
+                foreach (Vector3 position in debugLocations)
                 {
-
-                    foreach (Vector3 position in debugLocations)
-                    {
-                        Gizmos.DrawSphere(position, 0.2f);
-                    }
-
+                    Gizmos.DrawSphere(position, 0.2f);
                 }
             }
         }
