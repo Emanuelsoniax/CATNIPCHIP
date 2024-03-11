@@ -6,9 +6,13 @@ using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 public class Waypoint : MonoBehaviour
 {
-    public enum WaypointType { IdlePoint, PassThroughPoint }
+    public enum WaypointType { IdlePoint, PassThroughPoint, JumpPoint }
     [SerializeField]
     public WaypointType waypointType;
+    public Vector3 Position
+    {
+        get { return transform.position; } 
+    } 
 
     public IEnumerator WaitForEvent(KeyCode key)
     {
@@ -40,6 +44,9 @@ public class Waypoint : MonoBehaviour
             case WaypointType.PassThroughPoint:
                 gizmosColor = Color.blue;
                 break;
+            case WaypointType.JumpPoint:
+                 gizmosColor = Color.green;
+                 break;
             default: 
                 gizmosColor = Color.white;
                 break;

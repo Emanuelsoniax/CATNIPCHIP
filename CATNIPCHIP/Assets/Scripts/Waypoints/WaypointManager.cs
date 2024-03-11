@@ -41,6 +41,8 @@ public class WaypointManager
                     return true;
                 case Waypoint.WaypointType.IdlePoint:
                     return false;
+                case Waypoint.WaypointType.JumpPoint:
+                    return false;
                 default:
                     Debug.Log("Can't determine if the agent can move");
                     return false;

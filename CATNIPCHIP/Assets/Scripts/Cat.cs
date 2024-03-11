@@ -17,7 +17,7 @@ public class Cat : MonoBehaviour
 
     private void Start()
     {
-        transform.position = waypointManager.CurrentWaypoint.transform.position;
+        transform.position = waypointManager.CurrentWaypoint.Position;
         agent.OnDestinationReached += ArrivedAtWaypoint;
         SetNextWaypoint();
     }
@@ -33,7 +33,7 @@ public class Cat : MonoBehaviour
            agent.MoveAgent();
         }
 
-        if(Vector3.Distance(transform.position, waypointManager.CurrentWaypoint.transform.position) <= 0.01f)
+        if(Vector3.Distance(transform.position, waypointManager.CurrentWaypoint.Position) <= 0.01f)
         {
             Debug.Log("aaaa");
             SetNextWaypoint();
@@ -49,7 +49,7 @@ public class Cat : MonoBehaviour
 
     private void SetNextWaypoint()
     {
-        agent.SetDestination(waypointManager.NextWaypoint.transform.position);
+        agent.SetDestination(waypointManager);
     }
 
 }
