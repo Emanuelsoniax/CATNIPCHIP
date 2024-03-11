@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -35,6 +36,11 @@ public class SmoothAgentMovement : MonoBehaviour
     [SerializeField]
     private Vector3 MovementVector;
 
+    [SerializeField]
+    private float jumpHeight;
+    [SerializeField]
+    private float jumpDuration;
+
     private Vector3 InfinityVector = new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
 
     private Vector3[] debugLocations;
@@ -53,10 +59,9 @@ public class SmoothAgentMovement : MonoBehaviour
 
         if (waypointManager.CurrentWaypoint.waypointType == Waypoint.WaypointType.JumpPoint)
         {
-            JumpToNextWaypoint();
+            StartCoroutine(JumpToNextWaypoint(waypointManager));
         }
-        else
-        {
+
             NavMesh.CalculatePath(transform.position, waypointManager.NextWaypoint.Position, Agent.areaMask, CurrentPath);
             Vector3[] corners = CurrentPath.corners;
 
@@ -75,12 +80,42 @@ public class SmoothAgentMovement : MonoBehaviour
                 PathLocations = corners;
                 PathIndex = 0;
             }
-        }
+
     }
 
-    private void JumpToNextWaypoint()
+    private IEnumerator JumpToNextWaypoint(WaypointManager waypointManager)
     {
         Debug.Log("jump");
+        Agent.isStopped = true;
+
+
+        Vector3 startPos = transform.position;
+        Vector3 endPos = waypointManager.NextWaypoint.Position;
+
+        Vector3 lookDirection = (endPos + (Agent.baseOffset * Vector3.up) - transform.position).normalized;
+        float normalizedTime = 0.0f;
+        while (normalizedTime < 1.0f)
+        {
+            if (lookDirection != Vector3.zero)
+            {
+                transform.rotation = Quaternion.Lerp(
+                    transform.rotation,
+                    Quaternion.LookRotation(lookDirection),
+                    Mathf.Clamp01(LerpTime * TargetLerpSpeed * (1 - Smoothing))
+                );
+            }
+
+            float yOffset = jumpHeight * 4.0f * (normalizedTime - normalizedTime * normalizedTime);
+            transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
+            normalizedTime += Time.deltaTime / jumpDuration;
+            yield return null;
+        }
+
+        Debug.Log(Agent.isOnNavMesh);
+        Agent.isStopped = false;
+        OnDestinationReached.Invoke();
+        yield return null;
+
     }
 
     public void MoveAgent()

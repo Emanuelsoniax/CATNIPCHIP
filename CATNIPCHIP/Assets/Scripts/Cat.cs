@@ -32,12 +32,6 @@ public class Cat : MonoBehaviour
         {
            agent.MoveAgent();
         }
-
-        if(Vector3.Distance(transform.position, waypointManager.CurrentWaypoint.Position) <= 0.01f)
-        {
-            Debug.Log("aaaa");
-            SetNextWaypoint();
-        }
     }
 
     private void ArrivedAtWaypoint()
