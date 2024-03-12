@@ -17,7 +17,7 @@ public class SmoothAgentMovement : MonoBehaviour
     [SerializeField]
     [Range(-1, 1)]
     private float SmoothingFactor = 0;
-    private NavMeshAgent Agent;
+    private NavMeshAgent agent;
     private NavMeshPath CurrentPath;
     public Vector3[] PathLocations = new Vector3[0];
     [SerializeField]
@@ -49,20 +49,22 @@ public class SmoothAgentMovement : MonoBehaviour
 
     private void Awake()
     {
-        Agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         CurrentPath = new NavMeshPath();
     }
 
     public void SetDestination(WaypointManager waypointManager)
     {
-        Agent.ResetPath();
+        agent.ResetPath();
 
         if (waypointManager.CurrentWaypoint.waypointType == Waypoint.WaypointType.JumpPoint)
         {
             StartCoroutine(JumpToNextWaypoint(waypointManager));
         }
+        else
+        {
 
-            NavMesh.CalculatePath(transform.position, waypointManager.NextWaypoint.Position, Agent.areaMask, CurrentPath);
+            NavMesh.CalculatePath(transform.position, waypointManager.NextWaypoint.Position, agent.areaMask, CurrentPath);
             Vector3[] corners = CurrentPath.corners;
 
             if (corners.Length > 2)
@@ -81,39 +83,51 @@ public class SmoothAgentMovement : MonoBehaviour
                 PathIndex = 0;
             }
 
+        }
+
+    }
+
+    private IEnumerator PrepareForJump(Vector3 targetPosition)
+    {
+        Vector3 lookDirection = (targetPosition - transform.position).normalized;
+
+        float turnDuration = 4;
+        float normalizedTime = 0.0f;
+
+        while (normalizedTime < 1.0f)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookDirection), normalizedTime);
+            normalizedTime += Time.deltaTime / turnDuration;
+            yield return null;
+        }
+
+        yield return null;
     }
 
     private IEnumerator JumpToNextWaypoint(WaypointManager waypointManager)
     {
-        Debug.Log("jump");
-        Agent.isStopped = true;
+        agent.enabled = false;
 
+        Coroutine coroutine = StartCoroutine(PrepareForJump(waypointManager.NextWaypoint.Position));
 
         Vector3 startPos = transform.position;
         Vector3 endPos = waypointManager.NextWaypoint.Position;
 
-        Vector3 lookDirection = (endPos + (Agent.baseOffset * Vector3.up) - transform.position).normalized;
+
         float normalizedTime = 0.0f;
+
         while (normalizedTime < 1.0f)
         {
-            if (lookDirection != Vector3.zero)
-            {
-                transform.rotation = Quaternion.Lerp(
-                    transform.rotation,
-                    Quaternion.LookRotation(lookDirection),
-                    Mathf.Clamp01(LerpTime * TargetLerpSpeed * (1 - Smoothing))
-                );
-            }
-
             float yOffset = jumpHeight * 4.0f * (normalizedTime - normalizedTime * normalizedTime);
             transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
             normalizedTime += Time.deltaTime / jumpDuration;
             yield return null;
         }
+        yield return null;
 
-        Debug.Log(Agent.isOnNavMesh);
-        Agent.isStopped = false;
+        agent.enabled = true;
         OnDestinationReached.Invoke();
+        StopCoroutine(coroutine);
         yield return null;
 
     }
@@ -126,7 +140,7 @@ public class SmoothAgentMovement : MonoBehaviour
             return;
         }
 
-        if (Vector3.Distance(transform.position, PathLocations[PathIndex] + (Agent.baseOffset * Vector3.up)) <= Agent.radius)
+        if (Vector3.Distance(transform.position, PathLocations[PathIndex] + (agent.baseOffset * Vector3.up)) <= agent.radius)
         {
             PathIndex++;
             LerpTime = 0;
@@ -138,7 +152,7 @@ public class SmoothAgentMovement : MonoBehaviour
             }
         }
 
-        MovementVector = (PathLocations[PathIndex] + (Agent.baseOffset * Vector3.up) - transform.position).normalized;
+        MovementVector = (PathLocations[PathIndex] + (agent.baseOffset * Vector3.up) - transform.position).normalized;
 
         TargetDirection = Vector3.Lerp(
             TargetDirection,
@@ -156,7 +170,7 @@ public class SmoothAgentMovement : MonoBehaviour
             );
         }
 
-        Agent.Move(TargetDirection * Agent.speed * Time.deltaTime);
+        agent.Move(TargetDirection * agent.speed * Time.deltaTime);
 
         LerpTime += Time.deltaTime;
     }
@@ -198,7 +212,7 @@ public class SmoothAgentMovement : MonoBehaviour
     {
         for (int i = 0; i < Path.Length; i++)
         {
-            if (NavMesh.SamplePosition(Path[i], out NavMeshHit hit, Agent.radius * 1.5f, Agent.areaMask))
+            if (NavMesh.SamplePosition(Path[i], out NavMeshHit hit, agent.radius * 1.5f, agent.areaMask))
             {
                 Path[i] = hit.position;
             }
@@ -223,7 +237,7 @@ public class SmoothAgentMovement : MonoBehaviour
         int index = 1;
         for (int i = 0; i < Path.Length - 1; i++)
         {
-            if (Vector3.Distance(Path[index], Path[lastIndex]) <= Agent.radius)
+            if (Vector3.Distance(Path[index], Path[lastIndex]) <= agent.radius)
             {
                 Path[index] = InfinityVector;
             }
@@ -274,7 +288,7 @@ public class SmoothAgentMovement : MonoBehaviour
 
         Vector3[] TrimmedPath = Path.Except(new Vector3[] { InfinityVector }).ToArray();
 
-        Debug.Log($"Original Smoothed Path: {Path.Length}. Trimmed Path: {TrimmedPath.Length}");
+        //Debug.Log($"Original Smoothed Path: {Path.Length}. Trimmed Path: {TrimmedPath.Length}");
 
         return TrimmedPath;
     }

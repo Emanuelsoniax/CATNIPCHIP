@@ -26,7 +26,7 @@ public class Cat : MonoBehaviour
     {
         current = waypointManager.CurrentWaypoint;
 
-        Debug.Log(waypointManager.CanMoveToNextWaypoint);
+        //Debug.Log(waypointManager.CanMoveToNextWaypoint);
 
         if (waypointManager.CanMoveToNextWaypoint)
         {
@@ -38,7 +38,6 @@ public class Cat : MonoBehaviour
     {
         waypointManager.SetNextWaypointAsCurrent();
         SetNextWaypoint();
-        Debug.Log("juist ja");
     }
 
     private void SetNextWaypoint()

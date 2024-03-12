@@ -268,6 +268,11 @@ MonoBehaviour:
       - {fileID: 0}
       - {fileID: 0}
       - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+  agent: {fileID: 7888509446190230876}
+  current: {fileID: 0}
 --- !u!195 &7040371350038916930
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -283,7 +288,7 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
+  m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
@@ -303,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UsePathSmoothing: 1
-  SmoothingLength: 0.62
+  SmoothingLength: 0.22
   SmoothingSections: 8
   SmoothingFactor: 0.67
   PathLocations: []
@@ -312,6 +317,8 @@ MonoBehaviour:
   TargetLerpSpeed: 1
   TargetDirection: {x: -0.15966861, y: 0, z: 0.9870951}
   MovementVector: {x: -0.1620852, y: 0, z: 0.98677677}
+  jumpHeight: 2.46
+  jumpDuration: 1.27
 --- !u!1 &8721637088183738073
 GameObject:
   m_ObjectHideFlags: 0
