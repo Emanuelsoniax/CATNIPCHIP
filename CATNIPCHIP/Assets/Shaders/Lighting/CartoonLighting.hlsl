@@ -55,8 +55,8 @@ float3 CartoonLightHandling(CartoonLightingData d, Light light)
     
     float3 radiance = light.color * step(.1, atten);
     
-    float diffuse = saturate(dot(d.normalWS, light.direction));
-    diffuse = step(.01f, diffuse);
+    float raw_diffuse = saturate(dot(d.normalWS, light.direction));
+    float diffuse = step(.01f, raw_diffuse);
     
     float3 reflectionDir = reflect(d.viewDirectionWS, d.normalWS);
     float specularDot = saturate(dot(reflectionDir, -light.direction));
@@ -65,7 +65,7 @@ float3 CartoonLightHandling(CartoonLightingData d, Light light)
     float3 diffuse_color = diffuse * atten * light.color * d.albedo * (1 - d.metallic);
     float3 specular_color = specular * light.color * (d.metallic * d.albedo + (1 - d.metallic) * light.color) * d.smoothness;
 
-    float fresnel = step(d.sheen, Pow4(1 - saturate(dot(d.viewDirectionWS, d.normalWS)))) * diffuse * atten;
+    float fresnel = step(1 - d.sheen, Pow4(1 - saturate(dot(d.viewDirectionWS, d.normalWS)))) * raw_diffuse * atten;
     
     float3 color = diffuse_color + specular_color + fresnel * light.color;
 
