@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{11a1b6f1-2a94-4f4b-a103-215482b99a0f}">
+		<property name="assetPath">
+			<value>Cat/Meow_Short_3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.70274376417233564</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8899a6f9-df85-4c86-994d-ae2f64bb354e}</destination>
+		</relationship>
+	</object>
+</objects>
