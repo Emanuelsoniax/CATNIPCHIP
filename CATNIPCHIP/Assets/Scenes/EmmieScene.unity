@@ -1288,6 +1288,10 @@ PrefabInstance:
       propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[13]
       value: 
       objectReference: {fileID: 1233026316}
+    - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
+      propertyPath: Smoothing
+      value: 0.126
+      objectReference: {fileID: 0}
     - target: {fileID: 7938288405801476174, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9655678

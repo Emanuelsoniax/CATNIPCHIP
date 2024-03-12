@@ -57,34 +57,33 @@ public class SmoothAgentMovement : MonoBehaviour
     {
         agent.ResetPath();
 
-        if (waypointManager.CurrentWaypoint.waypointType == Waypoint.WaypointType.JumpPoint)
+        switch (waypointManager.CurrentWaypoint.waypointType)
         {
-            StartCoroutine(JumpToNextWaypoint(waypointManager));
+            case Waypoint.WaypointType.JumpPoint:
+                StartCoroutine(JumpToNextWaypoint(waypointManager));
+                break;
+
+            default:
+                NavMesh.CalculatePath(transform.position, waypointManager.NextWaypoint.Position, agent.areaMask, CurrentPath);
+                Vector3[] corners = CurrentPath.corners;
+
+                if (corners.Length > 2)
+                {
+                    BezierCurve[] curves = new BezierCurve[corners.Length - 1];
+
+                    SmoothCurves(curves, corners);
+
+                    PathLocations = GetPathLocations(curves);
+
+                    PathIndex = 0;
+                }
+                else
+                {
+                    PathLocations = corners;
+                    PathIndex = 0;
+                }
+                break;
         }
-        else
-        {
-
-            NavMesh.CalculatePath(transform.position, waypointManager.NextWaypoint.Position, agent.areaMask, CurrentPath);
-            Vector3[] corners = CurrentPath.corners;
-
-            if (corners.Length > 2)
-            {
-                BezierCurve[] curves = new BezierCurve[corners.Length - 1];
-
-                SmoothCurves(curves, corners);
-
-                PathLocations = GetPathLocations(curves);
-
-                PathIndex = 0;
-            }
-            else
-            {
-                PathLocations = corners;
-                PathIndex = 0;
-            }
-
-        }
-
     }
 
     private IEnumerator PrepareForJump(Vector3 targetPosition)

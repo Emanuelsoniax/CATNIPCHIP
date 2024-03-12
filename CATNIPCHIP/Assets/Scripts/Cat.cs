@@ -5,7 +5,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Cat : MonoBehaviour
+public class Cat : StateMachine
 {
     [SerializeField]
     private WaypointManager waypointManager = new WaypointManager();
@@ -13,7 +13,10 @@ public class Cat : MonoBehaviour
     private SmoothAgentMovement agent;
 
     [SerializeField]
-    private Waypoint current;
+    private Waypoint Current
+    {
+        get { return waypointManager.CurrentWaypoint; }
+    }
 
     private void Start()
     {
@@ -24,10 +27,6 @@ public class Cat : MonoBehaviour
 
     private void Update()
     {
-        current = waypointManager.CurrentWaypoint;
-
-        //Debug.Log(waypointManager.CanMoveToNextWaypoint);
-
         if (waypointManager.CanMoveToNextWaypoint)
         {
            agent.MoveAgent();
@@ -43,6 +42,11 @@ public class Cat : MonoBehaviour
     private void SetNextWaypoint()
     {
         agent.SetDestination(waypointManager);
+    }
+
+    public override void IdleBehaviour()
+    {
+        base.IdleBehaviour();
     }
 
 }
