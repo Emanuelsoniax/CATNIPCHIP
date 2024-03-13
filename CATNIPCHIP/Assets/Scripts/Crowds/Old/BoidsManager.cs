@@ -24,24 +24,6 @@ public class BoidsManager : MonoBehaviour
 
     private Boid[] _boids;
 
-    [Serializable]
-    public struct BoidParameters
-    {
-        public float maxVelocity;
-
-        [Header("Distances")]
-        public float seperationDistance;
-        public float alignmentDistance;
-        public float cohesionDistance;
-
-        [Header("Weights")]
-        public float seperationWeight;
-        public float alignmentWeight;
-        public float cohesionWeight;
-        public float targetWeight;
-    }
-
-
     private void Start()
     {
         _boids = new Boid[_boidCount];

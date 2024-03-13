@@ -6,7 +6,7 @@ public class Boid : MonoBehaviour
 {
     public Vector3 Velocity { get; set; }
 
-    public void UpdateBoid(BoidsManager.BoidParameters parameters, Transform target, Boid[] boids)
+    public void UpdateBoid(BoidParameters parameters, Transform target, Boid[] boids)
     {
         Vector3 alignmentForce = Vector3.zero;
         Vector3 seperationForce = Vector3.zero;
