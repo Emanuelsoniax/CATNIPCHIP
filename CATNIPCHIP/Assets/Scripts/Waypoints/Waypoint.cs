@@ -63,7 +63,7 @@ public class Waypoint : MonoBehaviour
         }
 
         Gizmos.color = gizmosColor;
-        Gizmos.DrawSphere(transform.position, 0.25f);
+        Gizmos.DrawSphere(transform.position, 0.3f);
 
     }
 }

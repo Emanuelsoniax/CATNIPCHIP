@@ -5,7 +5,8 @@ public class StateMachine: MonoBehaviour
     [SerializeField]
     public Animator animator;
 
-    private BaseState currentBehaviorState;
+    [HideInInspector]
+    public BaseState currentBehaviorState;
 
     public void OnStart()
     {

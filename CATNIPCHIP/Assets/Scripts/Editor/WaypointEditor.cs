@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEditor.EditorTools;
+using log4net.Util;
+using static Waypoint;
 
 
 [CustomEditor(typeof(Waypoint))]
 public class WaypointEditor : Editor
 {
-
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
         var waypoint = target as Waypoint;
+        if (waypoint != null)
+        {
+            return;
+        }
 
         switch (waypoint.waypointType)
         {

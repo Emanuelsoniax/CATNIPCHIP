@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Unity.Collections;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Cat : StateMachine
 {
@@ -23,7 +25,6 @@ public class Cat : StateMachine
         OnStart();
         agent.OnDestinationReached += ArrivedAtWaypoint;
         SetNextWaypoint();
-
     }
 
     private void Update()
