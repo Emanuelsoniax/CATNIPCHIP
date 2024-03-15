@@ -6,6 +6,7 @@
     "com.unity.entities.graphics": "1.0.16",
     "com.unity.feature.development": "1.0.1",
     "com.unity.feature.vr": "1.0.0",
+    "com.unity.physics": "1.0.16",
     "com.unity.postprocessing": "3.4.0",
     "com.unity.render-pipelines.universal": "14.0.10",
     "com.unity.shadergraph": "14.0.10",

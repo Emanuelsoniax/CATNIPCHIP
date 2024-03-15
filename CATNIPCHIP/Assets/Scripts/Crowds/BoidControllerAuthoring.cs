@@ -19,7 +19,9 @@ public class BoidControllerAuthoring : MonoBehaviour
         seperationWeight = 1.0f,
         alignmentWeight = 1.5f,
         cohesionWeight = 1.0f,
-        targetWeight = 1.0f
+        targetWeight = 1.0f,
+        obstacleAvoidanceDistance = 1.0f,
+        obstacleAvoidanceWeight = 4.0f
     };
 
 
