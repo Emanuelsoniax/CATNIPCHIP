@@ -9,10 +9,8 @@ public class Cat : StateMachine
 {
     [SerializeField]
     private WaypointManager waypointManager = new WaypointManager();
-    [SerializeField]
     private SmoothAgentMovement agent;
 
-    [SerializeField]
     private Waypoint Current
     {
         get { return waypointManager.CurrentWaypoint; }
@@ -20,13 +18,18 @@ public class Cat : StateMachine
 
     private void Start()
     {
-        transform.position = waypointManager.CurrentWaypoint.Position;
+        agent = GetComponent<SmoothAgentMovement>();
+        transform.position = Current.Position;
+        OnStart();
         agent.OnDestinationReached += ArrivedAtWaypoint;
         SetNextWaypoint();
+
     }
 
     private void Update()
     {
+        UpdateState(Current.state);
+
         if (waypointManager.CanMoveToNextWaypoint)
         {
            agent.MoveAgent();
@@ -41,12 +44,8 @@ public class Cat : StateMachine
 
     private void SetNextWaypoint()
     {
+        Debug.Log("Current Waypoint: " + Current.waypointType + "   Next Waypoint: " + waypointManager.NextWaypoint.waypointType);
         agent.SetDestination(waypointManager);
-    }
-
-    public override void IdleBehaviour()
-    {
-        base.IdleBehaviour();
     }
 
 }

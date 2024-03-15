@@ -52,6 +52,7 @@ public class WaypointManager
 
     public void SetNextWaypointAsCurrent()
     {
+
         if(currentWaypoint < waypointCollections[currentCollection].waypoints.Length)
         {
             currentWaypoint++;
@@ -65,6 +66,7 @@ public class WaypointManager
         {
             CurrentWaypoint.StartCoroutine(CurrentWaypoint.WaitForEvent(KeyCode.K));
         }
+
     }
 
     public Waypoint GetNextWaypoint()

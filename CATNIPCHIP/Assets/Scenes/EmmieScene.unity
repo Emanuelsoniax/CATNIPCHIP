@@ -718,6 +718,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 1
+  state: {fileID: 11400000, guid: d8bc54936fbbb024a90fa7d87bc73b19, type: 2}
+  nextState: {fileID: 0}
 --- !u!1 &882190400
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +765,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 2
+  state: {fileID: 0}
+  nextState: {fileID: 0}
 --- !u!1 &883250170
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 1
+  state: {fileID: 11400000, guid: fe5e2a2c838f90d4e8c1731c9ac846ea, type: 2}
+  nextState: {fileID: 0}
 --- !u!1 &1233026314
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 0
+  state: {fileID: 11400000, guid: 9aa47b3d84943b442bb3e0c4f1a842b0, type: 2}
+  nextState: {fileID: 11400000, guid: d8bc54936fbbb024a90fa7d87bc73b19, type: 2}
 --- !u!1 &1742012823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 1
+  state: {fileID: 11400000, guid: fe5e2a2c838f90d4e8c1731c9ac846ea, type: 2}
+  nextState: {fileID: 0}
 --- !u!1 &1989806529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 2
+  state: {fileID: 0}
+  nextState: {fileID: 0}
 --- !u!1 &2140712640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 0
+  state: {fileID: 11400000, guid: 9aa47b3d84943b442bb3e0c4f1a842b0, type: 2}
+  nextState: {fileID: 11400000, guid: fe5e2a2c838f90d4e8c1731c9ac846ea, type: 2}
 --- !u!1001 &5900390717836509268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1228,10 +1242,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.size
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[0]
       value: 
@@ -1260,38 +1270,6 @@ PrefabInstance:
       propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[6]
       value: 
       objectReference: {fileID: 1233026316}
-    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[7]
-      value: 
-      objectReference: {fileID: 883250172}
-    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[8]
-      value: 
-      objectReference: {fileID: 818386404}
-    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[9]
-      value: 
-      objectReference: {fileID: 2144467512}
-    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[10]
-      value: 
-      objectReference: {fileID: 1989806531}
-    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[11]
-      value: 
-      objectReference: {fileID: 1970518567}
-    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[12]
-      value: 
-      objectReference: {fileID: 882190402}
-    - target: {fileID: 2141907073815266699, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[13]
-      value: 
-      objectReference: {fileID: 1233026316}
-    - target: {fileID: 7888509446190230876, guid: e055cc672da088442b498fd02723d033, type: 3}
-      propertyPath: Smoothing
-      value: 0.126
-      objectReference: {fileID: 0}
     - target: {fileID: 7938288405801476174, guid: e055cc672da088442b498fd02723d033, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9655678

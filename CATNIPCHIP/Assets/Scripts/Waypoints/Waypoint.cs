@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,13 @@ public class Waypoint : MonoBehaviour
     public enum WaypointType { IdlePoint, PassThroughPoint, JumpPoint }
     [SerializeField]
     public WaypointType waypointType;
+    [HideInInspector]
+    public BaseState state;
+    [HideInInspector]
+    public BaseState nextState;
+
+    public event Action<BaseState> onWaitedForEvent;
+
     public Vector3 Position
     {
         get { return transform.position; } 
@@ -18,6 +26,8 @@ public class Waypoint : MonoBehaviour
     {
         yield return new WaitUntil(() => Input.GetKeyDown(key));
 
+        onWaitedForEvent?.Invoke(nextState);
+        state = nextState;
         waypointType = WaypointType.PassThroughPoint;
 
         yield return false;

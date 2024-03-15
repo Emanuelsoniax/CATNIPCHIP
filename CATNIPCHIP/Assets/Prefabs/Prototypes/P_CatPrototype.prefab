@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d84682a665d394478f335710e3ed09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   waypointManager:
     waypointCollections:
     - waypoints:
@@ -272,7 +273,6 @@ MonoBehaviour:
       - {fileID: 0}
       - {fileID: 0}
   agent: {fileID: 7888509446190230876}
-  current: {fileID: 0}
 --- !u!195 &7040371350038916930
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -313,7 +313,7 @@ MonoBehaviour:
   SmoothingFactor: 0.67
   PathLocations: []
   PathIndex: 25
-  Smoothing: 0.875
+  Smoothing: 0.126
   TargetLerpSpeed: 1
   TargetDirection: {x: -0.15966861, y: 0, z: 0.9870951}
   MovementVector: {x: -0.1620852, y: 0, z: 0.98677677}
