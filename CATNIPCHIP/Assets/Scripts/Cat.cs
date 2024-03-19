@@ -18,6 +18,8 @@ public class Cat : StateMachine
         get { return waypointManager.CurrentWaypoint; }
     }
 
+    private Waypoint pastIdlePoint;
+
     private void Start()
     {
         agent = GetComponent<SmoothAgentMovement>();
@@ -37,15 +39,28 @@ public class Cat : StateMachine
         }
     }
 
+    /// <summary>
+    /// Sets the destination Waypoint as current and changes the past Idle point back.
+    /// </summary>
     private void ArrivedAtWaypoint()
     {
+        if(pastIdlePoint == Current)
+        {
+            Current.waypointType = Waypoint.WaypointType.IdlePoint;
+        }
         waypointManager.SetNextWaypointAsCurrent();
         SetNextWaypoint();
     }
 
+    /// <summary>
+    /// Sets the next Waypoint in the collection and sets the destination in the Agent.
+    /// </summary>
     private void SetNextWaypoint()
     {
         Debug.Log("Current Waypoint: " + Current.waypointType + "   Next Waypoint: " + waypointManager.NextWaypoint.waypointType);
+
+        if (waypointManager.NextWaypoint.waypointType == Waypoint.WaypointType.IdlePoint) pastIdlePoint = waypointManager.NextWaypoint;
+
         agent.SetDestination(waypointManager);
     }
 

@@ -15,29 +15,28 @@ public class Waypoint : MonoBehaviour
     [HideInInspector]
     public BaseState nextState;
 
+    public bool eventHappened = false;
     public event Action<BaseState> onWaitedForEvent;
+
+    private void Start()
+    {
+        //TODO: Listen to events that are a condition
+    }
+
 
     public Vector3 Position
     {
         get { return transform.position; } 
     } 
 
-    public IEnumerator WaitForEvent(KeyCode key)
+    public IEnumerator WaitForEvent(Func<bool> condition)
     {
-        yield return new WaitUntil(() => Input.GetKeyDown(key));
+        yield return new WaitUntil(() => condition());
 
         onWaitedForEvent?.Invoke(nextState);
         state = nextState;
         waypointType = WaypointType.PassThroughPoint;
-
-        yield return false;
-    }
-
-    public IEnumerator WaitForEvent(Vector3 position)
-    {
-        yield return new WaitUntil(() => transform.position == position);
-
-        waypointType = WaypointType.PassThroughPoint;
+        eventHappened = false;
 
         yield return false;
     }
@@ -64,6 +63,11 @@ public class Waypoint : MonoBehaviour
 
         Gizmos.color = gizmosColor;
         Gizmos.DrawSphere(transform.position, 0.3f);
-
     }
+
+    public void EventHappened()
+    {
+        eventHappened = true;
+    }
+
 }

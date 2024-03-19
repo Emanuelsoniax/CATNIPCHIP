@@ -15,7 +15,7 @@ public class WaypointEditor : Editor
         base.OnInspectorGUI();
 
         var waypoint = target as Waypoint;
-        if (waypoint != null)
+        if (waypoint == null)
         {
             return;
         }

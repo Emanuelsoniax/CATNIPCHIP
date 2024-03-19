@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Idle", menuName = "States/Idle", order = 1)]
@@ -24,4 +23,7 @@ public class IdleState : BaseState
     {
         base.OnUpdate();
     }
+
+
+
 }
