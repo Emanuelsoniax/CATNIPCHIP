@@ -574,7 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boidPrefab: {fileID: 367438042711118095, guid: 78afdeb7ae982074a831938a2428e05c, type: 3}
   target: {fileID: 2065568185}
-  amount: 5000
+  amount: 1000
   spawnRadius: 10.74
   parameters:
     maxVelocity: 5
@@ -980,7 +980,7 @@ Transform:
   m_GameObject: {fileID: 2065568184}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.67, y: 7.16, z: 1.45}
+  m_LocalPosition: {x: -0.43, y: 13.24, z: -3.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

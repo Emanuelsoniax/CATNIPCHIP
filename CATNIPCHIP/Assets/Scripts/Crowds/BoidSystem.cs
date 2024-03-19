@@ -28,6 +28,8 @@ public partial class BoidSystem : SystemBase
 
         NativeParallelMultiHashMap<int, int> hashMap = new NativeParallelMultiHashMap<int, int>(entityData.Length, Allocator.TempJob);
 
+        Debug.Log($"Current boid count: {entityData.Length}");
+
         float maxRadius = controller.parameters.MaxDistance;
         float offsetRange = maxRadius / 2f;
         quaternion randomHashRotation = quaternion.Euler(

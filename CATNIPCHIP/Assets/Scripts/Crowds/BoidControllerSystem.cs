@@ -10,10 +10,15 @@ using Unity.Burst;
 [BurstCompile]
 public partial class BoidControllerSystem : SystemBase
 {
+    private bool _spawned = false;
+
+
     [BurstCompile]
-    protected override void OnStartRunning()
+    protected override void OnUpdate()
     {
-        base.OnStartRunning();
+        if (_spawned)
+            return;
+
         if (!SystemAPI.TryGetSingletonEntity<BoidControllerData>(out Entity controllerEntity))
             return;
 
@@ -21,6 +26,7 @@ public partial class BoidControllerSystem : SystemBase
         RefRO<LocalTransform> target = SystemAPI.GetComponentRO<LocalTransform>(controller.ValueRO.target);
 
         EntityCommandBuffer ecb = new EntityCommandBuffer(Allocator.Temp);
+        Debug.Log($"Amount of boids: {controller.ValueRO.amount}");
         for (int i = 0; i < controller.ValueRO.amount; i++)
         {
             Entity newBoid = ecb.Instantiate(controller.ValueRO.boidPrefab);
@@ -32,9 +38,6 @@ public partial class BoidControllerSystem : SystemBase
         }
 
         ecb.Playback(EntityManager);
-    }
-
-    protected override void OnUpdate()
-    {
+        _spawned = true;
     }
 }
