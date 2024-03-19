@@ -526,8 +526,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../CATNIPCHIP_FMOD/CATNIPCHIP_FMOD.fspro
-  sourceBankPath: ../CATNIPCHIP_FMOD/Build
+  sourceProjectPath: ../FMOD/CATNIPCHIP_FMOD/CATNIPCHIP_FMOD.fspro
+  sourceBankPath: ../FMOD/CATNIPCHIP_FMOD/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
