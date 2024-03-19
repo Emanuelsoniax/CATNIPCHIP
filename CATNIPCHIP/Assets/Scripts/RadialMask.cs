@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,23 @@ public class RadialMask : MonoBehaviour
     [SerializeField] private float _baseRange = 0;
     [SerializeField] private float _targetRange = 2;
     [SerializeField] private float _time = 2;
-    [SerializeField] private LeanTweenType _tweenType;
+    [SerializeField] private LeanTweenType _tweenType = LeanTweenType.easeInOutCubic;
 
     private float _range;
 
     public float Range
     {
-        get => _range;
+        get
+        {
+#if UNITY_EDITOR
+            if (Application.isPlaying)
+                return _range;
+            else 
+                return _baseRange;
+#else
+            return _range;
+#endif
+        }
         set { _range = value; }
     }
 
@@ -34,8 +45,17 @@ public class RadialMask : MonoBehaviour
         LeanTween.value(_range, _baseRange, _time).setEase(_tweenType).setOnUpdate(val => _range = val);
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, _range);
+        if (!Application.isPlaying)
+        {
+            Gizmos.DrawWireSphere(transform.position, _baseRange);
+        }
+        else
+        {
+            Gizmos.DrawWireSphere(transform.position, _range);
+        }
     }
+#endif
 }

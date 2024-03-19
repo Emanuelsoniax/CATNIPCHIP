@@ -73,7 +73,7 @@ public class WaypointManager
     {
         Waypoint waypoint = null;
 
-        if (currentWaypoint < waypointCollections[currentCollection].waypoints.Length)
+        if (currentWaypoint < waypointCollections[currentCollection].waypoints.Length -1)
         {
             waypoint = waypointCollections[currentCollection].waypoints[currentWaypoint + 1];
         }
