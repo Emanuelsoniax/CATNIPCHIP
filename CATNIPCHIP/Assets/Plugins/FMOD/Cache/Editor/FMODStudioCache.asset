@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638464449601970428
+  lastModified: 638458416625604889
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -62,7 +62,7 @@ MonoBehaviour:
   Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638464449601982791
+  lastModified: 638458416625619924
   FileSizes:
   - Name: Desktop
     Value: 994
@@ -82,7 +82,7 @@ MonoBehaviour:
   Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638464449601982791
+  lastModified: 638458416625619924
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -114,7 +114,7 @@ MonoBehaviour:
   - {fileID: -3980647478077495538}
   StringsBanks:
   - {fileID: -4188667577009495972}
-  cacheTime: 638464449601992763
+  cacheTime: 638458416625629933
   cacheVersion: 131616
 --- !u!114 &106565477656558623
 MonoBehaviour:
@@ -158,7 +158,7 @@ MonoBehaviour:
   Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638464449601982791
+  lastModified: 638458416625619924
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -178,7 +178,7 @@ MonoBehaviour:
   Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638464449601992763
+  lastModified: 638458416625629933
   FileSizes:
   - Name: Desktop
     Value: 26496
@@ -198,7 +198,7 @@ MonoBehaviour:
   Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Environment.bank
   Name: Environment
   StudioPath: bank:/Environment
-  lastModified: 638464449601970428
+  lastModified: 638458416625614863
   FileSizes:
   - Name: Desktop
     Value: 494
