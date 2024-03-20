@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7083762754118877429
+--- !u!114 &-5637439031962920918
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OutsideMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 4d5cfd948c774f74197bfebccf599e8c, type: 3}
+  m_Name: Volumetrics
+  m_Shader: {fileID: 4800000, guid: 09b17899bac9efb41903d13e11b96458, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -108,38 +108,32 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FadeBorderOffset: 0.08
-    - _FadeOffset: 0.1
+    - _GaussAmount: 0
+    - _GaussSamples: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _INSIDE: 0
+    - _Intensity: 0
+    - _JitterVolumetric: 0
+    - _MaxDistance: 75
     - _Metallic: 0
-    - _NoiseFadeOffset: 0.1
-    - _NoiseOffset: 0.08
-    - _NoiseScale: 1.07
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Scattering: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Step: 3.95
+    - _Steps: 25
     - _Surface: 0
-    - _Test: 1.05
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _Base: {r: 0.51868975, g: 0.51152545, b: 0.5188679, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Lol: {r: 0, g: 18.90483, b: 32, a: 0}
-    - _Sad: {r: 0.36307406, g: 0.37865394, b: 0.38679248, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Transition: {r: 25.992073, g: 15.4325905, b: 0, a: 1}
   m_BuildTextureStacks: []

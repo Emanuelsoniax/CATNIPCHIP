@@ -330,7 +330,7 @@ public class SmoothAgentMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && debugLocations != null)
         {
             if (debugLocations.Length >= 0)
             {

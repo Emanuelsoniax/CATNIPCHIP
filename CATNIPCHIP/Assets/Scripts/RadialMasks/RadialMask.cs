@@ -28,21 +28,25 @@ public class RadialMask : MonoBehaviour
         set { _range = value; }
     }
 
+    public float Time => _time;
+    public float BaseRange => _baseRange;
+    public float TargetRange => _targetRange;
+
     private void Awake()
     {
         _range = _baseRange;
     }
 
     [ContextMenu("AnimateIn")]
-    public void AnimateIn()
-    {
-        LeanTween.value(_range, _targetRange, _time).setEase(_tweenType).setOnUpdate(val => _range = val);
-    }
+    public void AnimateIn() => Animate(_targetRange, _time);
+
 
     [ContextMenu("AnimateOut")]
-    public void AnimateOut()
+    public void AnimateOut() => Animate(_baseRange, _time);
+
+    public void Animate(float target, float time, Action onAnimated = null)
     {
-        LeanTween.value(_range, _baseRange, _time).setEase(_tweenType).setOnUpdate(val => _range = val);
+        LeanTween.value(_range, target, time).setEase(_tweenType).setOnUpdate(val => _range = val).setOnComplete(onAnimated);
     }
 
 #if UNITY_EDITOR
