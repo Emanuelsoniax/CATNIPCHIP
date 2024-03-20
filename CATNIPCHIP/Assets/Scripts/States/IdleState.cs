@@ -6,7 +6,7 @@ using UnityEngine;
 public class IdleState : BaseState
 {
     public string animationTrigger;
-    public Animation idleAnimation;
+    public int idleAnimationIndex;
 
     public override void OnEnd()
     {
@@ -16,7 +16,7 @@ public class IdleState : BaseState
     public override void OnStart()
     {
         base.OnStart();
-        cat.animator?.SetTrigger(animationTrigger);
+        cat.animator?.SetInteger("IdleIndex", idleAnimationIndex);
     }
 
     public override void OnUpdate()
