@@ -11,6 +11,7 @@ public class Cat : StateMachine
 {
     [SerializeField]
     private WaypointManager waypointManager = new WaypointManager();
+    [SerializeField]
     private SmoothAgentMovement agent;
 
     private Waypoint Current
@@ -20,9 +21,19 @@ public class Cat : StateMachine
 
     private Waypoint pastIdlePoint;
 
+    private Vector2 velocity;
+    private Vector2 smoothDeltaPosition;
+
+
+    private void Awake()
+    {
+        animator.applyRootMotion = true;
+        agent.agent.updatePosition = true;
+        agent.agent.updateRotation = false;
+    }
+
     private void Start()
     {
-        agent = GetComponent<SmoothAgentMovement>();
         transform.position = Current.Position;
         OnStart();
         agent.OnDestinationReached += ArrivedAtWaypoint;
@@ -33,9 +44,56 @@ public class Cat : StateMachine
     {
         UpdateState(Current.state);
 
+        UpdateAnimation();
+
         if (waypointManager.CanMoveToNextWaypoint)
         {
            agent.MoveAgent();
+        
+        }
+
+    }
+
+    private void OnAnimatorMove()
+    {
+        Vector3 rootPosition = animator.rootPosition;
+        rootPosition.y = agent.agent.nextPosition.y;
+        transform.position = rootPosition;
+        transform.rotation = animator.rootRotation;
+        agent.agent.nextPosition = rootPosition;
+    }
+
+    private void UpdateAnimation()
+    {
+       Vector3 worldDeltaPosition = agent.agent.nextPosition - transform.position;
+        worldDeltaPosition.y = 0;
+
+        float dx = Vector3.Dot(transform.right, worldDeltaPosition);
+        float dy = Vector3.Dot(transform.forward, worldDeltaPosition);
+        Vector2 deltaPosition = new Vector2(dx, dy);
+
+        float smooth = Mathf.Min(1, Time.deltaTime/0.1f);
+        smoothDeltaPosition = Vector2.Lerp(smoothDeltaPosition, deltaPosition, smooth);
+
+        velocity = smoothDeltaPosition / Time.deltaTime;
+
+        if(agent.agent.remainingDistance <= agent.agent.stoppingDistance)
+        {
+            velocity = Vector2.Lerp(Vector2.zero,velocity,agent.agent.remainingDistance/ agent.agent.stoppingDistance);
+        }
+
+        bool move = agent.agent.velocity.magnitude > 0.5f && agent.agent.remainingDistance > agent.agent.stoppingDistance;
+
+        animator.SetBool("Move", waypointManager.CanMoveToNextWaypoint);
+        animator.SetFloat("VelocityX", agent.agent.velocity.normalized.x);
+        animator.SetFloat("VelocityZ", agent.agent.velocity.normalized.z);
+
+        Debug.Log(velocity.x);
+
+        float deltaMagnitude = worldDeltaPosition.magnitude;
+        if(deltaMagnitude > agent.agent.radius /2f)
+        {
+            transform.position = Vector3.Lerp(animator.rootPosition, agent.agent.nextPosition, smooth);
         }
     }
 

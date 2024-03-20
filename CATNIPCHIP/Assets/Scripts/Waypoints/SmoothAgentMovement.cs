@@ -17,7 +17,8 @@ public class SmoothAgentMovement : MonoBehaviour
     [SerializeField]
     [Range(-1, 1)]
     private float SmoothingFactor = 0;
-    private NavMeshAgent agent;
+    [SerializeField]
+    public NavMeshAgent agent;
     private NavMeshPath CurrentPath;
     public Vector3[] PathLocations = new Vector3[0];
     [SerializeField]
@@ -49,7 +50,6 @@ public class SmoothAgentMovement : MonoBehaviour
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
         CurrentPath = new NavMeshPath();
     }
 
