@@ -36,7 +36,9 @@ public class StateMachine: MonoBehaviour
 
     public void UpdateState(BaseState state)
     {
-        currentBehaviorState = state;
-        currentBehaviorState?.OnUpdate();
+        Debug.Log("hallo");
+        SwitchState(state);
     }
+
+    public virtual void UpdateState() { }
 }

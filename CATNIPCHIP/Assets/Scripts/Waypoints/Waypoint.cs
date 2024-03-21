@@ -33,12 +33,12 @@ public class Waypoint : MonoBehaviour
     {
         yield return new WaitUntil(() => condition());
 
-        onWaitedForEvent?.Invoke(nextState);
         state = nextState;
+        onWaitedForEvent?.Invoke(nextState);
         waypointType = WaypointType.PassThroughPoint;
         eventHappened = false;
 
-        yield return false;
+        yield return null;
     }
 
     private void OnDrawGizmos()

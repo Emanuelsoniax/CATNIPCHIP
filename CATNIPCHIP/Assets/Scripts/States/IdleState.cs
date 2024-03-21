@@ -16,7 +16,7 @@ public class IdleState : BaseState
     public override void OnStart()
     {
         base.OnStart();
-        cat.animator?.SetInteger("IdleIndex", idleAnimationIndex);
+        cat.animator?.SetFloat("IdleIndex", idleAnimationIndex);
     }
 
     public override void OnUpdate()
