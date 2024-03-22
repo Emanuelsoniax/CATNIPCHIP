@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Walking
   m_EditorClassIdentifier: 
   cat: {fileID: 0}
-  movementSpeed: 2
+  agent: {fileID: 0}
+  movementSpeed: 3.5

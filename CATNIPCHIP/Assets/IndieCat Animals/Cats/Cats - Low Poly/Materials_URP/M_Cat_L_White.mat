@@ -114,7 +114,7 @@ Material:
     - Boolean_523A0F5F: 1
     - Boolean_66D76BED: 1
     - Boolean_7CD2C539: 0
-    - Boolean_B1E7E1C2: 1
+    - Boolean_B1E7E1C2: 0
     - Boolean_C792849A: 0
     - Boolean_E0857713: 1
     - Boolean_FC9E3EC0: 1
@@ -138,13 +138,13 @@ Material:
     - Color_6BAB0765: {r: 0.7450981, g: 0.35686278, b: 0.40392157, a: 0}
     - Color_85313AED: {r: 0.98039216, g: 0.9137255, b: 0.737255, a: 0}
     - Color_92653150: {r: 0, g: 0, b: 0, a: 0}
-    - Color_A19B2226: {r: 0, g: 0, b: 0, a: 0}
+    - Color_A19B2226: {r: 0.00017799958, g: 0.033228885, b: 0.03773582, a: 0}
     - Color_A38F6A3D: {r: 0.9803922, g: 0.8117648, b: 0.89019614, a: 0}
     - Color_B29D9E15: {r: 0, g: 0, b: 0, a: 0}
     - Color_B4447790: {r: 0, g: 0, b: 0, a: 0}
-    - Color_BD5AAB2F: {r: 1, g: 0.5729166, b: 0, a: 0}
+    - Color_BD5AAB2F: {r: 0.09927912, g: 0.8156534, b: 0.9150943, a: 0}
     - Color_BD909386: {r: 0, g: 0, b: 0, a: 0}
-    - Color_BFE7A771: {r: 0, g: 0, b: 0, a: 0}
+    - Color_BFE7A771: {r: 0.90196085, g: 0.8745099, b: 0.8862746, a: 0}
     - Color_C0094F21: {r: 0, g: 0, b: 0, a: 0}
     - Color_D1351635: {r: 1, g: 1, b: 1, a: 0}
     - Color_F909C112: {r: 0.92549026, g: 0.82745105, b: 0.28235295, a: 0}
