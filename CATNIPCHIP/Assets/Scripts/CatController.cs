@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class CatController : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class CatController : MonoBehaviour
     [Header("Movement Settings")]
     public float jumpHeight;
     public float jumpDuration;
-   
+
 
     private void OnValidate()
     {
@@ -24,7 +22,6 @@ public class CatController : MonoBehaviour
         if (!animator) animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     public void Move()
     {
         if (agent.hasPath)
@@ -70,9 +67,10 @@ public class CatController : MonoBehaviour
         {
             var dir = (endPos - startPos).normalized;
             animator.SetBool("isPivoting", true);
-            // transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), 180 * Time.deltaTime);
+
             float angleToMove = Vector3.SignedAngle(transform.forward, (endPos - transform.position), Vector3.up);
             animator.SetFloat("Angle", angleToMove);
+
             var isRotated = Vector3.Dot(dir, transform.forward) >= 0.8f;
             if (isRotated)
             {
@@ -103,25 +101,6 @@ public class CatController : MonoBehaviour
 
     }
 
-    private IEnumerator PrepareForJump(Vector3 targetPosition)
-    {
-        Vector3 lookDirection = (targetPosition - transform.position).normalized;
-
-        float turnDuration = 4;
-        float normalizedTime = 0.0f;
-
-        while (normalizedTime < 1.0f)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookDirection), normalizedTime);
-            normalizedTime += Time.deltaTime / turnDuration;
-
-            Vector3 worldDirection = transform.rotation * Vector3.forward;
-            yield return null;
-        }
-
-        yield return null;
-    }
-
     public void SetDestination(WaypointManager waypointManager)
     {
         switch (waypointManager.CurrentWaypoint.waypointType)
@@ -133,20 +112,6 @@ public class CatController : MonoBehaviour
                 agent.destination = waypointManager.NextWaypoint.Position;
                 break;
 
-        }
-    }
-
-    public void HandleInput()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            var isHit = Physics.Raycast(ray, out RaycastHit hit, 20);
-            if (isHit)
-            {
-                agent.destination = hit.point;
-            }
         }
     }
 

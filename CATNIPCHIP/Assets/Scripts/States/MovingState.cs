@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "Moving", menuName = "States/Moving", order = 2)]
 public class MovingState : BaseState
@@ -21,8 +16,8 @@ public class MovingState : BaseState
 
     public override void OnStart()
     {
-        cat.controller.animator.SetBool("Move", true);
         base.OnStart();
+        cat.controller.animator.SetBool("Move", true);
     }
 
     public override void OnUpdate()

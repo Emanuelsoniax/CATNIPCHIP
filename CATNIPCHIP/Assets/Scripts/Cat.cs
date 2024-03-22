@@ -1,20 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Unity.Collections;
-using UnityEditor.TerrainTools;
 using UnityEngine;
-using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 
-[RequireComponent (typeof(CatController))]
+[RequireComponent(typeof(CatController))]
 public class Cat : MonoBehaviour
 {
     [SerializeField]
     private WaypointManager waypointManager = new WaypointManager();
-    [SerializeField]
-    private SmoothAgentMovement agent;
     [SerializeField]
     public CatController controller;
     [HideInInspector]
@@ -29,7 +20,7 @@ public class Cat : MonoBehaviour
 
     private void OnValidate()
     {
-        if(!controller) { controller = GetComponent<CatController>(); }
+        if (!controller) { controller = GetComponent<CatController>(); }
     }
 
     private void Awake()
@@ -71,7 +62,7 @@ public class Cat : MonoBehaviour
     /// </summary>
     private void ArrivedAtWaypoint()
     {
-        if(pastIdlePoint == Current)
+        if (pastIdlePoint == Current)
         {
             Current.waypointType = Waypoint.WaypointType.IdlePoint;
         }

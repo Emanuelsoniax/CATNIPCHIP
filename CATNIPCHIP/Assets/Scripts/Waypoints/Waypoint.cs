@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static System.Runtime.CompilerServices.RuntimeHelpers;
-
 
 public class Waypoint : MonoBehaviour
 {
@@ -26,8 +23,8 @@ public class Waypoint : MonoBehaviour
 
     public Vector3 Position
     {
-        get { return transform.position; } 
-    } 
+        get { return transform.position; }
+    }
 
     public IEnumerator WaitForEvent(Func<bool> condition)
     {
@@ -54,9 +51,9 @@ public class Waypoint : MonoBehaviour
                 gizmosColor = Color.blue;
                 break;
             case WaypointType.JumpPoint:
-                 gizmosColor = Color.green;
-                 break;
-            default: 
+                gizmosColor = Color.green;
+                break;
+            default:
                 gizmosColor = Color.white;
                 break;
         }
