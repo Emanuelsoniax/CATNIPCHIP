@@ -142,5 +142,5 @@ Material:
     - _Lol: {r: 0, g: 18.90483, b: 32, a: 0}
     - _Sad: {r: 0.22688074, g: 0.6037736, b: 0.19651122, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Transition: {r: 25.992073, g: 15.4325905, b: 0, a: 1}
+    - _Transition: {r: 2.9960787, g: 1.7788984, b: 0, a: 1}
   m_BuildTextureStacks: []
