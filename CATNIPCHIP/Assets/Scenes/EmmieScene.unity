@@ -3467,6 +3467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6993745199852707133}
   - component: {fileID: 8684447252412507933}
+  - component: {fileID: 8684447252412507935}
   - component: {fileID: 482206460081717938}
   - component: {fileID: 8684447252412507934}
   m_Layer: 0
@@ -3797,6 +3798,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 482206460081717938}
   animator: {fileID: 8684447252412507933}
+--- !u!114 &8684447252412507935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657551587604170631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d84682a665d394478f335710e3ed09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointManager:
+    waypointCollections:
+    - canLoop: 1
+      waypoints:
+      - {fileID: 883250172}
+      - {fileID: 818386404}
+      - {fileID: 2144467512}
+      - {fileID: 1989806531}
+      - {fileID: 1970518567}
+      - {fileID: 882190402}
+      - {fileID: 1233026316}
+    currentCollection: 0
+    currentWaypoint: 0
+  agent: {fileID: 0}
+  controller: {fileID: 8684447252412507934}
 --- !u!1 &8727803149137761185
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,12 +7,18 @@ using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
-public class Cat : StateMachine
+
+[RequireComponent (typeof(CatController))]
+public class Cat : MonoBehaviour
 {
     [SerializeField]
     private WaypointManager waypointManager = new WaypointManager();
     [SerializeField]
     private SmoothAgentMovement agent;
+    [SerializeField]
+    public CatController controller;
+    [HideInInspector]
+    public StateMachine stateMachine = new StateMachine();
 
     private Waypoint Current
     {
@@ -21,45 +27,43 @@ public class Cat : StateMachine
 
     private Waypoint pastIdlePoint;
 
+    private void OnValidate()
+    {
+        if(!controller) { controller = GetComponent<CatController>(); }
+    }
 
     private void Awake()
     {
-        animator.applyRootMotion = true;
-        agent.agent.updateRotation = false;
-        agent.agent.updatePosition = true;
         transform.position = Current.Position;
-        currentBehaviorState = Current.state;
+        stateMachine.currentBehaviorState = Current.state;
     }
 
     private void OnEnable()
     {
-        agent.OnDestinationReached += UpdateState;
-        agent.OnDestinationReached += ArrivedAtWaypoint;
+        controller.OnDestinationReached += UpdateState;
+        controller.OnDestinationReached += ArrivedAtWaypoint;
     }
 
     private void Start()
     {
-        agent.agent.updatePosition = false;
-        OnStart();
+        stateMachine.OnStart();
         SetNextWaypoint();
     }
 
     private void Update()
     {
-        OnUpdate();
+        stateMachine.OnUpdate();
 
         if (waypointManager.CanMoveToNextWaypoint)
         {
-           agent.MoveAgent();
-        
+            controller.Move();
         }
 
     }
 
-    public override void UpdateState()
+    private void UpdateState()
     {
-        SwitchState(waypointManager.NextWaypoint.state);
-        base.UpdateState();
+        stateMachine.SwitchState(waypointManager.NextWaypoint.state);
     }
 
     /// <summary>
@@ -85,10 +89,11 @@ public class Cat : StateMachine
         if (waypointManager.NextWaypoint.waypointType == Waypoint.WaypointType.IdlePoint)
         {
             pastIdlePoint = waypointManager.NextWaypoint;
-            pastIdlePoint.onWaitedForEvent += UpdateState;
+            pastIdlePoint.onWaitedForEvent += stateMachine.UpdateState;
         }
 
-        agent.SetDestination(waypointManager);
+        controller.SetDestination(waypointManager.NextWaypoint);
+        //agent.SetDestination(waypointManager);
     }
 
 }

@@ -1,10 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class CatController : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Animator animator;
+    private NavMeshAgent agent;
+    [HideInInspector]
+    public Animator animator;
+
+    public event Action OnDestinationReached;
 
     private void OnValidate()
     {
@@ -13,12 +17,8 @@ public class CatController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Move()
     {
-        HandleInput();
-
-        animator.SetBool("Move", agent.hasPath);
-
         if (agent.hasPath)
         {
             var dir = (agent.steeringTarget - animator.rootPosition).normalized;
@@ -43,17 +43,21 @@ public class CatController : MonoBehaviour
             {
                 transform.position = Vector3.Lerp(animator.rootPosition, agent.nextPosition, smooth);
             }
-
-
         }
         else
         {
+            OnDestinationReached.Invoke();
             animator.SetFloat("VelocityX", 0);
             animator.SetFloat("VelocityZ", 0);
         }
     }
 
-    private void HandleInput()
+    public void SetDestination(Waypoint waypoint)
+    {
+        agent.destination = waypoint.Position;
+    }
+
+    public void HandleInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
