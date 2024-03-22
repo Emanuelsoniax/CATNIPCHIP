@@ -12,8 +12,6 @@ public class MovingState : BaseState
     public float movementSpeed;
     private float baseSpeed;
 
-    private Vector2 velocity = Vector2.zero;
-    private Vector2 smoothDeltaPosition = Vector2.zero;
 
     public override void OnEnd()
     {

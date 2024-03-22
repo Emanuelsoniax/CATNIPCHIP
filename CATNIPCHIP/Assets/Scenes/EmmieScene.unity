@@ -1010,8 +1010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9dc1f1dc13e2345b0a4026190b376a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointType: 0
-  state: {fileID: 11400000, guid: 9aa47b3d84943b442bb3e0c4f1a842b0, type: 2}
+  waypointType: 1
+  state: {fileID: 11400000, guid: fe5e2a2c838f90d4e8c1731c9ac846ea, type: 2}
   nextState: {fileID: 11400000, guid: d8bc54936fbbb024a90fa7d87bc73b19, type: 2}
   eventHappened: 0
 --- !u!1 &1556338205
@@ -2667,8 +2667,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 60.9
+  orthographic: 0
   orthographic size: 3.14
   m_Depth: 0
   m_CullingMask:
@@ -2693,13 +2693,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7201996662096654855}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.71733636, y: 0, z: 0, w: 0.69672704}
-  m_LocalPosition: {x: 2.11, y: 19.63, z: 2.97}
+  m_LocalRotation: {x: 0.3599968, y: 0, z: 0, w: 0.9329536}
+  m_LocalPosition: {x: -0.032276154, y: 1.3, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 91.67, y: 0, z: 0}
+  m_Father: {fileID: 6993745199852707133}
+  m_LocalEulerAnglesHint: {x: 42.2, y: 0, z: 0}
 --- !u!1 &4359039735611183923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3386,6 +3386,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4325338323746671128}
   - {fileID: 440778129538871180}
   - {fileID: 3918360608825787809}
   m_Father: {fileID: 0}
@@ -3797,8 +3798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8684447252412507933}
-  jumpHeight: 1.2
-  jumpDuration: 1.5
+  jumpHeight: 2
+  jumpDuration: 1
 --- !u!114 &8684447252412507935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3820,7 +3821,6 @@ MonoBehaviour:
       - {fileID: 1970518567}
       - {fileID: 882190402}
       - {fileID: 1233026316}
-      - {fileID: 2144467512}
     currentCollection: 0
     currentWaypoint: 0
   agent: {fileID: 0}
@@ -3968,4 +3968,3 @@ SceneRoots:
   - {fileID: 1969856076}
   - {fileID: 380135851}
   - {fileID: 6993745199852707133}
-  - {fileID: 4325338323746671128}

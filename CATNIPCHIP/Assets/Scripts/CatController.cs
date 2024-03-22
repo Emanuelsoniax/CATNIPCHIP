@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class CatController : MonoBehaviour
 {
@@ -31,12 +33,11 @@ public class CatController : MonoBehaviour
             var animationDirection = transform.InverseTransformDirection(dir);
             var isFacingMoveDirection = Vector3.Dot(dir, transform.forward) > 0.5f;
 
-            //animationDirection = animationDirection * 10;
 
             animator.SetFloat("VelocityX", animationDirection.x);
             animator.SetFloat("VelocityZ", isFacingMoveDirection ? animationDirection.z : 0, 0.5f, Time.deltaTime);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), 45 * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), 45 * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, agent.destination) < agent.radius / 2f)
             {
@@ -68,11 +69,14 @@ public class CatController : MonoBehaviour
         while (true)
         {
             var dir = (endPos - startPos).normalized;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), 180 * Time.deltaTime);
-
-            var isRotated = Vector3.Dot(dir, transform.forward) >= 1;
+            animator.SetBool("isPivoting", true);
+            // transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), 180 * Time.deltaTime);
+            float angleToMove = Vector3.SignedAngle(transform.forward, (endPos - transform.position), Vector3.up);
+            animator.SetFloat("Angle", angleToMove);
+            var isRotated = Vector3.Dot(dir, transform.forward) >= 0.8f;
             if (isRotated)
             {
+                animator.SetBool("isPivoting", false);
                 break;
             }
             yield return null;
