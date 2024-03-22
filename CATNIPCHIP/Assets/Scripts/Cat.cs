@@ -92,7 +92,7 @@ public class Cat : MonoBehaviour
             pastIdlePoint.onWaitedForEvent += stateMachine.UpdateState;
         }
 
-        controller.SetDestination(waypointManager.NextWaypoint);
+        controller.SetDestination(waypointManager);
         //agent.SetDestination(waypointManager);
     }
 

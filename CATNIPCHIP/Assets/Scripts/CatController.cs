@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,11 @@ public class CatController : MonoBehaviour
     public Animator animator;
 
     public event Action OnDestinationReached;
+
+    [Header("Movement Settings")]
+    public float jumpHeight;
+    public float jumpDuration;
+   
 
     private void OnValidate()
     {
@@ -52,9 +58,78 @@ public class CatController : MonoBehaviour
         }
     }
 
-    public void SetDestination(Waypoint waypoint)
+    private IEnumerator DoJump(Waypoint waypoint)
     {
-        agent.destination = waypoint.Position;
+        agent.enabled = false;
+        Vector3 startPos = transform.position;
+        Vector3 endPos = waypoint.Position;
+
+        //setup for jumping
+        while (true)
+        {
+            var dir = (endPos - startPos).normalized;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), 180 * Time.deltaTime);
+
+            var isRotated = Vector3.Dot(dir, transform.forward) >= 1;
+            if (isRotated)
+            {
+                break;
+            }
+            yield return null;
+        }
+
+        animator.SetTrigger("Jump");
+        yield return new WaitForSeconds(.7f);
+
+
+        float normalizedTime = 0.0f;
+
+        while (normalizedTime < 1.0f)
+        {
+            float yOffset = jumpHeight * (normalizedTime - normalizedTime * normalizedTime);
+            transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
+            normalizedTime += Time.deltaTime / jumpDuration;
+            yield return null;
+        }
+
+        yield return null;
+        agent.enabled = true;
+        OnDestinationReached.Invoke();
+        yield return null;
+
+    }
+
+    private IEnumerator PrepareForJump(Vector3 targetPosition)
+    {
+        Vector3 lookDirection = (targetPosition - transform.position).normalized;
+
+        float turnDuration = 4;
+        float normalizedTime = 0.0f;
+
+        while (normalizedTime < 1.0f)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookDirection), normalizedTime);
+            normalizedTime += Time.deltaTime / turnDuration;
+
+            Vector3 worldDirection = transform.rotation * Vector3.forward;
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    public void SetDestination(WaypointManager waypointManager)
+    {
+        switch (waypointManager.CurrentWaypoint.waypointType)
+        {
+            case Waypoint.WaypointType.JumpPoint:
+                StartCoroutine(DoJump(waypointManager.NextWaypoint));
+                break;
+            default:
+                agent.destination = waypointManager.NextWaypoint.Position;
+                break;
+
+        }
     }
 
     public void HandleInput()

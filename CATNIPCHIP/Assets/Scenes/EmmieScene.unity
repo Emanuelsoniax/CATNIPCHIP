@@ -992,7 +992,7 @@ Transform:
   m_GameObject: {fileID: 1233026314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.917, y: 0.5, z: 11.63}
+  m_LocalPosition: {x: 20.917, y: 0, z: 11.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1465,7 +1465,7 @@ Transform:
   m_GameObject: {fileID: 1970518565}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.04, y: 1.99, z: 17.45}
+  m_LocalPosition: {x: 25.04, y: 1.834, z: 17.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1727,7 +1727,7 @@ Transform:
   m_GameObject: {fileID: 2144467510}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.02, y: 0, z: 0.9}
+  m_LocalPosition: {x: 17.11, y: -0.01, z: 3.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1919,7 +1919,7 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 0
+  m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.4
@@ -3796,8 +3796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbe6b52a02230c418af46dc5130e8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 482206460081717938}
   animator: {fileID: 8684447252412507933}
+  jumpHeight: 1.2
+  jumpDuration: 1.5
 --- !u!114 &8684447252412507935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3815,12 +3816,11 @@ MonoBehaviour:
     - canLoop: 1
       waypoints:
       - {fileID: 883250172}
-      - {fileID: 818386404}
-      - {fileID: 2144467512}
       - {fileID: 1989806531}
       - {fileID: 1970518567}
       - {fileID: 882190402}
       - {fileID: 1233026316}
+      - {fileID: 2144467512}
     currentCollection: 0
     currentWaypoint: 0
   agent: {fileID: 0}
