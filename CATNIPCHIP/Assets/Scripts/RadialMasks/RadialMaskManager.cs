@@ -16,11 +16,9 @@ namespace CATNIP
 
         private Vector4[] _maskData = new Vector4[MAX_RADIAL_MASKS];
 
-        public event Action onMaskEngulved;
+        public void AnimatePrimaryMask(float target, float time, Action onAnimated = null, Action<float> onUpdate = null) => AnimateMask(0, target, time, onAnimated, onUpdate);
 
-        public void AnimatePrimaryMask(float target, float time, Action onAnimated) => AnimateMask(0, target, time, onAnimated);
-
-        public void AnimateMask(int index, float target, float time, Action onAnimated)
+        public void AnimateMask(int index, float target, float time, Action onAnimated = null, Action<float> onUpdate = null)
         {
             if(!TryGetMask(index, out RadialMask mask))
             {
@@ -28,7 +26,7 @@ namespace CATNIP
                 return;
             }
 
-            mask.Animate(target, time);
+            mask.Animate(target, time, onAnimated, onUpdate);
         }
 
         public bool TryGetPrimaryMask(out RadialMask mask) => TryGetMask(0, out mask);

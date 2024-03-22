@@ -25,35 +25,82 @@ public class WorldTransitionManager : MonoBehaviour
         set => TransitionWorldState(value);
     }
 
-    public event Action<WorldState> onWorldTransitioned;
+    public WorldState TransitioningTo
+    {
+        get; private set;
+    }
+
+    public float NormalizedTime { get; private set; }
+
+    public event Action<WorldState> onWorldTransitionStart;
+    public event Action<WorldState> onWorldTransitionEnd;
 
     private WorldState _currentState;
 
-    private void TransitionWorldState(WorldState state)
+    public void TemporaryTransitionToDystopia(float time) => TransitionWorldStateTemporary(time, WorldState.Dystopia);
+    public void TemporaryTransitionToUtopia(float time) => TransitionWorldStateTemporary(time, WorldState.Utopia);
+
+    public void TransitionToDystopia() => CurrentState = WorldState.Dystopia;
+    public void TransitionToUtopia() => CurrentState = WorldState.Dystopia;
+
+    public void TransitionWorldState(WorldState state)
     {
+        if (!RadialMaskManager.TryGetPrimaryMask(out RadialMask mask))
+        {
+            Debug.LogWarning($"A primary mask is required. Make sure there is a radial mask in the first element of the masks collection.");
+            return;
+        }
+
+        if (TransitioningTo == state || CurrentState == state)
+        {
+            Debug.LogWarning($"Already transitioning or transitioned to this world state.");
+            return;
+        }
+
+        TransitioningTo = state;
         switch (state)
         {
             case WorldState.Dystopia:
-                if (!RadialMaskManager.TryGetPrimaryMask(out RadialMask mask))
-                    return;
-
-                RadialMaskManager.AnimatePrimaryMask(mask.BaseRange, _worldTransitionTime, () => SwitchWorldState(WorldState.Dystopia));
+                SwitchWorldState(mask.BaseRange, WorldState.Dystopia, mask);
                 break;
             case WorldState.Utopia:
-                RadialMaskManager.AnimatePrimaryMask(_worldTransitionDist, _worldTransitionTime, () => SwitchWorldState(WorldState.Utopia));
+                SwitchWorldState(_worldTransitionDist, WorldState.Utopia, mask);
                 break;
-
         }
     }
 
-    private void SwitchWorldState(WorldState state)
+    public void TransitionWorldStateTemporary(float time, WorldState state)
     {
-        onWorldTransitioned?.Invoke(state);
-        _currentState = state;
+        StartCoroutine(TransitionCoroutine(state, time));
+    }
+
+    private void SwitchWorldState(float target, WorldState state, RadialMask primaryMask)
+    {
+        onWorldTransitionStart?.Invoke(state);
+        RadialMaskManager.AnimatePrimaryMask(target, _worldTransitionTime,
+            () =>
+            {
+                onWorldTransitionEnd?.Invoke(state);
+                _currentState = state;
+            },
+            val => NormalizedTime = (val - primaryMask.BaseRange) / _worldTransitionDist);
+    }
+
+    private IEnumerator TransitionCoroutine(WorldState state, float time)
+    {
+        if (TransitioningTo != state && CurrentState != state)
+        {
+            TransitionWorldState(state);
+
+            yield return new WaitForSeconds(time);
+
+            TransitionWorldState(state == WorldState.Dystopia ? WorldState.Utopia : WorldState.Dystopia);
+        }
     }
 
     private void Update()
     {
         _radialMaskManager.UpdateShaderProperties();
+        Shader.SetGlobalFloat("_WorldTransitionTime", NormalizedTime);
     }
 }

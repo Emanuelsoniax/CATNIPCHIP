@@ -19,7 +19,7 @@ public class RadialMask : MonoBehaviour
 #if UNITY_EDITOR
             if (Application.isPlaying)
                 return _range;
-            else 
+            else
                 return _baseRange;
 #else
             return _range;
@@ -44,9 +44,16 @@ public class RadialMask : MonoBehaviour
     [ContextMenu("AnimateOut")]
     public void AnimateOut() => Animate(_baseRange, _time);
 
-    public void Animate(float target, float time, Action onAnimated = null)
+    public void Animate(float target, float time, Action onAnimated = null, Action<float> onUpdate = null)
     {
-        LeanTween.value(_range, target, time).setEase(_tweenType).setOnUpdate(val => _range = val).setOnComplete(onAnimated);
+        LeanTween.value(_range, target, time)
+            .setEase(_tweenType)
+            .setOnUpdate(val =>
+                {
+                    _range = val;
+                    onUpdate?.Invoke(val);
+                })
+            .setOnComplete(onAnimated);
     }
 
 #if UNITY_EDITOR

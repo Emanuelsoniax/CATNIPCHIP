@@ -140,7 +140,11 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: c157b61784926a24aad78cf815622bd0, type: 2}
+  - {fileID: 4044563329164963707, guid: 287a61798c2815f45a78f4effc27c359, type: 2}
+  - {fileID: 11400000, guid: beaf4f595f883904a8f53493857b6f01, type: 2}
+  - {fileID: 1569315272760006810, guid: 9aa649d01dae00f409b5ec26bd16e67e, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -162,6 +166,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DefaultCompany.CATNIPCHIP
+    Standalone: com.DefaultCompany.CATNIPCHIP
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -170,7 +175,7 @@ PlayerSettings:
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 23
-  AndroidTargetSdkVersion: 0
+  AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   stripEngineCode: 1
