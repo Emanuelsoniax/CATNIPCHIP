@@ -14,20 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: -4148041627402083653}
   m_InitManagerOnStart: 1
---- !u!114 &-7187490122109059810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
-  m_Name: Android Settings
-  m_EditorClassIdentifier: 
-  m_LoaderManagerInstance: {fileID: -3691890827943902598}
-  m_InitManagerOnStart: 1
 --- !u!114 &-4148041627402083653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +31,7 @@ MonoBehaviour:
   m_AutomaticRunning: 0
   m_Loaders:
   - {fileID: 11400000, guid: c7f28cba8542702429f68ab80a8ea3e1, type: 2}
---- !u!114 &-3691890827943902598
+--- !u!114 &-2691192996801223676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,7 +47,7 @@ MonoBehaviour:
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
   m_Loaders:
-  - {fileID: 11400000, guid: 4c42ceb3b61cdfe47a733c1595d841bd, type: 2}
+  - {fileID: 11400000, guid: c7f28cba8542702429f68ab80a8ea3e1, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,4 +63,18 @@ MonoBehaviour:
   Keys: 0100000007000000
   Values:
   - {fileID: -8761182408995652732}
-  - {fileID: -7187490122109059810}
+  - {fileID: 4044563329164963707}
+--- !u!114 &4044563329164963707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
+  m_Name: Android Settings
+  m_EditorClassIdentifier: 
+  m_LoaderManagerInstance: {fileID: -2691192996801223676}
+  m_InitManagerOnStart: 1

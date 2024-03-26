@@ -1,46 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8634406172087651292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
-  m_EditorClassIdentifier: 
-  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 638458419262982940
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
---- !u!114 &-8202834356526193773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638458419262982940
-  FileSizes:
-  - Name: Desktop
-    Value: 994
-  Exists: 1
---- !u!114 &-5901178300681410396
+--- !u!114 &-8005705599531491753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,7 +19,7 @@ MonoBehaviour:
     Data3: 1986559121
     Data4: 1278656885
   Banks:
-  - {fileID: 940297296267064650}
+  - {fileID: 1841627173285507912}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -67,56 +27,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 740
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: -8202834356526193773}
-  - {fileID: 2942949816736562342}
-  - {fileID: 7610310329738440637}
-  - {fileID: 7090462793699300736}
-  - {fileID: -8634406172087651292}
-  - {fileID: 940297296267064650}
-  EditorEvents:
-  - {fileID: -5901178300681410396}
-  - {fileID: 8921320524252843080}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: 7090462793699300736}
-  StringsBanks:
-  - {fileID: -8202834356526193773}
-  cacheTime: 638458419262992912
-  cacheVersion: 131617
---- !u!114 &940297296267064650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638458419262992912
-  FileSizes:
-  - Name: Desktop
-    Value: 26496
-  Exists: 1
---- !u!114 &2942949816736562342
+--- !u!114 &-5705284939973712149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +47,27 @@ MonoBehaviour:
   - Name: Desktop
     Value: 494
   Exists: 1
---- !u!114 &7090462793699300736
+--- !u!114 &-4188667577009495972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638458419262982940
+  FileSizes:
+  - Name: Desktop
+    Value: 994
+  Exists: 1
+--- !u!114 &-3980647478077495538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +87,103 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1036
   Exists: 1
---- !u!114 &7610310329738440637
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -4188667577009495972}
+  - {fileID: -5705284939973712149}
+  - {fileID: 5934817938216501799}
+  - {fileID: -3980647478077495538}
+  - {fileID: 937021582452704602}
+  - {fileID: 1841627173285507912}
+  EditorEvents:
+  - {fileID: -8005705599531491753}
+  - {fileID: 106565477656558623}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -3980647478077495538}
+  StringsBanks:
+  - {fileID: -4188667577009495972}
+  cacheTime: 638458419262992912
+  cacheVersion: 131616
+--- !u!114 &106565477656558623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Cat/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Cat/Footsteps
+  Guid:
+    Data1: 1188746152
+    Data2: 1095345359
+    Data3: -838726223
+    Data4: 710334463
+  Banks:
+  - {fileID: 1841627173285507912}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 340
+--- !u!114 &937021582452704602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638458419262982940
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &1841627173285507912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638458419262992912
+  FileSizes:
+  - Name: Desktop
+    Value: 26496
+  Exists: 1
+--- !u!114 &5934817938216501799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,30 +203,3 @@ MonoBehaviour:
   - Name: Desktop
     Value: 494
   Exists: 1
---- !u!114 &8921320524252843080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Cat/Footsteps
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Cat/Footsteps
-  Guid:
-    Data1: 1188746152
-    Data2: 1095345359
-    Data3: -838726223
-    Data4: 710334463
-  Banks:
-  - {fileID: 940297296267064650}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 340
