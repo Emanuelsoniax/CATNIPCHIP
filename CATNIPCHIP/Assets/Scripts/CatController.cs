@@ -12,8 +12,10 @@ public class CatController : MonoBehaviour
     public event Action OnDestinationReached;
 
     [Header("Movement Settings")]
-    public float jumpHeight;
-    public float jumpDuration;
+    private float jumpHeight = 2;
+    private float jumpDuration = 1;
+
+    public float movementSpeed = 0;
 
 
     private void OnValidate()
@@ -32,7 +34,7 @@ public class CatController : MonoBehaviour
 
 
             animator.SetFloat("VelocityX", animationDirection.x);
-            animator.SetFloat("VelocityZ", isFacingMoveDirection ? animationDirection.z : 0, 0.5f, Time.deltaTime);
+            animator.SetFloat("VelocityZ", isFacingMoveDirection ? movementSpeed/10 : 0, 0.5f, Time.deltaTime);
 
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), 45 * Time.deltaTime);
 
@@ -51,8 +53,8 @@ public class CatController : MonoBehaviour
         else
         {
             OnDestinationReached.Invoke();
-            animator.SetFloat("VelocityX", 0);
-            animator.SetFloat("VelocityZ", 0);
+            animator.SetFloat("VelocityX", 0, 0.25f, Time.deltaTime);
+            animator.SetFloat("VelocityZ", 0, 0.25f, Time.deltaTime);
         }
     }
 

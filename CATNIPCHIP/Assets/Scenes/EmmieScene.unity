@@ -655,7 +655,7 @@ Transform:
   m_GameObject: {fileID: 818386402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: 0, z: 10.15}
+  m_LocalPosition: {x: 3.13, y: 0, z: 6.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -751,7 +751,7 @@ Transform:
   m_GameObject: {fileID: 883250170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16, y: 0, z: 10.54}
+  m_LocalPosition: {x: 28.91, y: 0, z: 12.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -895,7 +895,7 @@ Transform:
   m_GameObject: {fileID: 1233026314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.917, y: 0, z: 11.63}
+  m_LocalPosition: {x: 24.84, y: 0, z: 11.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 1
-  state: {fileID: 11400000, guid: fe5e2a2c838f90d4e8c1731c9ac846ea, type: 2}
+  state: {fileID: 11400000, guid: f017e2d3742f05a4faf58f26329d1f14, type: 2}
   nextState: {fileID: 11400000, guid: d8bc54936fbbb024a90fa7d87bc73b19, type: 2}
   eventHappened: 0
 --- !u!1 &1556338205
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointType: 1
-  state: {fileID: 11400000, guid: fe5e2a2c838f90d4e8c1731c9ac846ea, type: 2}
+  state: {fileID: 11400000, guid: f017e2d3742f05a4faf58f26329d1f14, type: 2}
   nextState: {fileID: 0}
   eventHappened: 0
 --- !u!1 &1989806529
@@ -1700,9 +1700,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683996802344116235, guid: dc2d9a696836cfe4294ca18945c5a4a8, type: 3}
+      propertyPath: movementSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7406116788063577552, guid: dc2d9a696836cfe4294ca18945c5a4a8, type: 3}
       propertyPath: m_Name
       value: P_Cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458810297990640295, guid: dc2d9a696836cfe4294ca18945c5a4a8, type: 3}
+      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7458810297990640295, guid: dc2d9a696836cfe4294ca18945c5a4a8, type: 3}
       propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[0]
@@ -1724,6 +1732,14 @@ PrefabInstance:
       propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[4]
       value: 
       objectReference: {fileID: 1233026316}
+    - target: {fileID: 7458810297990640295, guid: dc2d9a696836cfe4294ca18945c5a4a8, type: 3}
+      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 818386404}
+    - target: {fileID: 7458810297990640295, guid: dc2d9a696836cfe4294ca18945c5a4a8, type: 3}
+      propertyPath: waypointManager.waypointCollections.Array.data[0].waypoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 2144467512}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
