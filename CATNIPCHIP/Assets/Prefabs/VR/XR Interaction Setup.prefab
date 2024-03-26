@@ -3735,12 +3735,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 311
   _rigidbody: {fileID: 6248474617590359193}
+  _snapDistance: 0.7
   _startPhysicsTrackingRadius: 0.16
   _trackingOffset: {x: 0.08, y: 0, z: 0.09}
   _velocityDamp: 0.759
-  _angularVelocityDamp: 0.8
+  _angularVelocityDamp: 0.919
   _maxPositionChange: 97
-  _maxRotationChange: 100
+  _maxRotationChange: 200
 --- !u!54 &6248474617590359193
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3765,7 +3766,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!1 &4873801114020098129
@@ -5030,12 +5031,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 311
   _rigidbody: {fileID: 3539643862477401008}
+  _snapDistance: 0.7
   _startPhysicsTrackingRadius: 0.16
   _trackingOffset: {x: 0.02, y: 0, z: 0.12}
   _velocityDamp: 0.759
-  _angularVelocityDamp: 0.8
+  _angularVelocityDamp: 0.919
   _maxPositionChange: 97
-  _maxRotationChange: 100
+  _maxRotationChange: 200
 --- !u!54 &3539643862477401008
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5060,7 +5062,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!1 &8401772232263831167

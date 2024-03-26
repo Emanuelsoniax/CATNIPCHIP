@@ -17,6 +17,7 @@ public class HandAnimationHandler : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
 
 
+    [SerializeField] private float _snapDistance = .7f;
     [SerializeField] private float _startPhysicsTrackingRadius = .2f;
     [SerializeField] private Vector3 _trackingOffset;
     [SerializeField, Range(0, 1)] private float _velocityDamp = .8f;
@@ -45,10 +46,9 @@ public class HandAnimationHandler : MonoBehaviour
         _animator.SetFloat("Trigger", pinchValue);
 
         // Check if the hand is near any physics objects
-        if (IsHoldingObject || !Physics.CheckSphere(_base.position + _trackingOffset, _startPhysicsTrackingRadius, _collisionMask, QueryTriggerInteraction.Ignore))
+        if (IsHoldingObject || IsTooFar() || !Physics.CheckSphere(_base.position + _trackingOffset, _startPhysicsTrackingRadius, _collisionMask, QueryTriggerInteraction.Ignore))
         {
-            transform.position = _controller.position;
-            transform.rotation = _controller.rotation;
+            SnapToTarget();
             return;
         }
 
@@ -78,6 +78,17 @@ public class HandAnimationHandler : MonoBehaviour
     private bool IsValidVelocity(float velocity)
     {
         return !float.IsNaN(velocity) && !float.IsInfinity(velocity);
+    }
+
+    private bool IsTooFar()
+    {
+        return Vector3.Distance(_base.position, _controller.position) > _snapDistance;
+    }
+
+    private void SnapToTarget()
+    {
+        transform.position = _controller.position;
+        transform.rotation = _controller.rotation;
     }
 
     private void OnDrawGizmosSelected()
