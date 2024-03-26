@@ -100,20 +100,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "02d25f6ad9fb445db64ef1d13d5dd3ba"
-                },
-                "m_SlotId": 3
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "2f9be9d727de4ba5b843afd69eeef33f"
-                },
-                "m_SlotId": -862311321
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "0dc53d4cbc504173adbda42aaed8a0cc"
                 },
                 "m_SlotId": 0
@@ -235,6 +221,20 @@
                     "m_Id": "02d25f6ad9fb445db64ef1d13d5dd3ba"
                 },
                 "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "84dde540762a41f987f3c706db7e5f11"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "2f9be9d727de4ba5b843afd69eeef33f"
+                },
+                "m_SlotId": -862311321
             }
         },
         {
@@ -1024,7 +1024,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "_AmbientOcclusion",
     "m_StageCapability": 3,
-    "m_Value": 1.0,
+    "m_Value": 0.5,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
