@@ -353,7 +353,7 @@ public class SmoothAgentMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && debugLocations != null)
         {
             Gizmos.DrawCube(agent.nextPosition, new Vector3(0.1f, 0.1f, 0.1f));
 
