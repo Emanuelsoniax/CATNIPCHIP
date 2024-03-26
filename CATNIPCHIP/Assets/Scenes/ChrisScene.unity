@@ -1602,6 +1602,7 @@ MonoBehaviour:
   waypointType: 0
   state: {fileID: 0}
   nextState: {fileID: 0}
+  eventHappened: 0
 --- !u!4 &613044936
 Transform:
   m_ObjectHideFlags: 0
@@ -5378,6 +5379,7 @@ MonoBehaviour:
   waypointType: 1
   state: {fileID: 0}
   nextState: {fileID: 0}
+  eventHappened: 0
 --- !u!4 &2119762204
 Transform:
   m_ObjectHideFlags: 0
@@ -5441,33 +5443,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3539643862477401008, guid: 7479749b02202e144aad29fa051bdb36, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6064996017605799580, guid: 7479749b02202e144aad29fa051bdb36, type: 3}
       propertyPath: m_Name
       value: XR Interaction Setup
-      objectReference: {fileID: 0}
-    - target: {fileID: 6248474617590359193, guid: 7479749b02202e144aad29fa051bdb36, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6989452085349830157, guid: 7479749b02202e144aad29fa051bdb36, type: 3}
-      propertyPath: _maxRotationChange
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6989452085349830157, guid: 7479749b02202e144aad29fa051bdb36, type: 3}
-      propertyPath: _angularVelocityDamp
-      value: 0.919
-      objectReference: {fileID: 0}
-    - target: {fileID: 7138408439403982403, guid: 7479749b02202e144aad29fa051bdb36, type: 3}
-      propertyPath: _maxRotationChange
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7138408439403982403, guid: 7479749b02202e144aad29fa051bdb36, type: 3}
-      propertyPath: _angularVelocityDamp
-      value: 0.919
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
