@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8005705599531491753
+--- !u!114 &-3789039483048170944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: 1986559121
     Data4: 1278656885
   Banks:
-  - {fileID: 1841627173285507912}
+  - {fileID: 7563756969401234169}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -27,66 +27,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 740
---- !u!114 &-5705284939973712149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Dialogue.bank
-  m_EditorClassIdentifier: 
-  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Dialogue.bank
-  Name: Dialogue
-  StudioPath: bank:/Dialogue
-  lastModified: 638458419262972948
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
---- !u!114 &-4188667577009495972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638458419262982940
-  FileSizes:
-  - Name: Desktop
-    Value: 994
-  Exists: 1
---- !u!114 &-3980647478077495538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638458419262972948
-  FileSizes:
-  - Name: Desktop
-    Value: 1036
-  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,23 +40,23 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -4188667577009495972}
-  - {fileID: -5705284939973712149}
-  - {fileID: 5934817938216501799}
-  - {fileID: -3980647478077495538}
-  - {fileID: 937021582452704602}
-  - {fileID: 1841627173285507912}
+  - {fileID: 4867512100721482318}
+  - {fileID: 2450783472550967849}
+  - {fileID: 2241093525058486533}
+  - {fileID: 2000747153116339519}
+  - {fileID: 2208622930413902029}
+  - {fileID: 7563756969401234169}
   EditorEvents:
-  - {fileID: -8005705599531491753}
-  - {fileID: 106565477656558623}
+  - {fileID: -3789039483048170944}
+  - {fileID: 1233626399023859249}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -3980647478077495538}
+  - {fileID: 2000747153116339519}
   StringsBanks:
-  - {fileID: -4188667577009495972}
-  cacheTime: 638458419262992912
-  cacheVersion: 131616
---- !u!114 &106565477656558623
+  - {fileID: 4867512100721482318}
+  cacheTime: 638464449601992763
+  cacheVersion: 131617
+--- !u!114 &1233626399023859249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,7 +75,7 @@ MonoBehaviour:
     Data3: -838726223
     Data4: 710334463
   Banks:
-  - {fileID: 1841627173285507912}
+  - {fileID: 7563756969401234169}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -143,7 +83,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 340
---- !u!114 &937021582452704602
+--- !u!114 &2000747153116339519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638464449601982791
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
+--- !u!114 &2208622930413902029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,32 +118,12 @@ MonoBehaviour:
   Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638458419262982940
+  lastModified: 638464449601982791
   FileSizes:
   - Name: Desktop
     Value: 494
   Exists: 1
---- !u!114 &1841627173285507912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638458419262992912
-  FileSizes:
-  - Name: Desktop
-    Value: 26496
-  Exists: 1
---- !u!114 &5934817938216501799
+--- !u!114 &2241093525058486533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,8 +138,68 @@ MonoBehaviour:
   Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Environment.bank
   Name: Environment
   StudioPath: bank:/Environment
-  lastModified: 638458419262972948
+  lastModified: 638464449601970428
   FileSizes:
   - Name: Desktop
     Value: 494
+  Exists: 1
+--- !u!114 &2450783472550967849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Dialogue.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Dialogue.bank
+  Name: Dialogue
+  StudioPath: bank:/Dialogue
+  lastModified: 638464449601970428
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &4867512100721482318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638464449601982791
+  FileSizes:
+  - Name: Desktop
+    Value: 994
+  Exists: 1
+--- !u!114 &7563756969401234169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/CATNIPCHIP_FMOD/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638464449601992763
+  FileSizes:
+  - Name: Desktop
+    Value: 26496
   Exists: 1

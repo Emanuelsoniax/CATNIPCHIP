@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 [RequireComponent(typeof(CatController))]
@@ -11,6 +12,10 @@ public class Cat : MonoBehaviour
     [HideInInspector]
     public StateMachine stateMachine = new StateMachine();
 
+    private XRSimpleInteractable interactable;
+
+    public bool isInteracting;
+
     private Waypoint Current
     {
         get { return waypointManager.CurrentWaypoint; }
@@ -21,6 +26,7 @@ public class Cat : MonoBehaviour
     private void OnValidate()
     {
         if (!controller) { controller = GetComponent<CatController>(); }
+        if(!interactable) { interactable = GetComponent<XRSimpleInteractable>(); }
     }
 
     private void Awake()
@@ -79,12 +85,18 @@ public class Cat : MonoBehaviour
 
         if (waypointManager.NextWaypoint.waypointType == Waypoint.WaypointType.IdlePoint)
         {
+            pastIdlePoint.onWaitedForEvent -= stateMachine.UpdateState;
             pastIdlePoint = waypointManager.NextWaypoint;
             pastIdlePoint.onWaitedForEvent += stateMachine.UpdateState;
         }
 
         controller.SetDestination(waypointManager);
         //agent.SetDestination(waypointManager);
+    }
+
+    public bool IsInteracting()
+    {
+        return interactable.isHovered;
     }
 
 }

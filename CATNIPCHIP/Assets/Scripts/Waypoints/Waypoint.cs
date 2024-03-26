@@ -15,9 +15,15 @@ public class Waypoint : MonoBehaviour
     public bool eventHappened = false;
     public event Action<BaseState> onWaitedForEvent;
 
-    private void Start()
+    private void OnEnable()
     {
-        //TODO: Listen to events that are a condition
+        (state as IdleState).onWaitedForEvent += EventHappened;
+        
+    }
+
+    private void OnDisable()
+    {
+        (state as IdleState).onWaitedForEvent -= EventHappened;
     }
 
 
@@ -28,8 +34,11 @@ public class Waypoint : MonoBehaviour
 
     public IEnumerator WaitForEvent(Func<bool> condition)
     {
+        Coroutine routine = StartCoroutine((state as IdleState).InteractionTimer());
+
         yield return new WaitUntil(() => condition());
 
+        StopCoroutine(routine);
         state = nextState;
         onWaitedForEvent?.Invoke(nextState);
         waypointType = WaypointType.PassThroughPoint;
@@ -65,6 +74,7 @@ public class Waypoint : MonoBehaviour
     public void EventHappened()
     {
         eventHappened = true;
+
     }
 
 }
