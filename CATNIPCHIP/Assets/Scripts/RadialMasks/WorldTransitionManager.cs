@@ -13,6 +13,7 @@ public enum WorldState
 [ExecuteAlways]
 public class WorldTransitionManager : MonoBehaviour
 {
+    [SerializeField] private WorldTransitionSettings _transitionSettings;
     [SerializeField] private RadialMaskManager _radialMaskManager;
     [SerializeField] private float _worldTransitionTime = 5.0f;
     [SerializeField] private float _worldTransitionDist = 1000.0f;
@@ -98,9 +99,11 @@ public class WorldTransitionManager : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         _radialMaskManager.UpdateShaderProperties();
         Shader.SetGlobalFloat("_WorldTransitionTime", NormalizedTime);
+        _transitionSettings.SetGlobalShaderProperties();
     }
 }

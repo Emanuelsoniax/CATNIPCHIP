@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: InsideMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 4d5cfd948c774f74197bfebccf599e8c, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: a3d7679e6c9ebba4fbcf8a1565fa2a71, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -41,7 +41,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BaseMapInside:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMapOutside:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMapInside:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMapOutside:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -81,6 +97,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_ff05a3a99a2b43f89ab3c90821f3b6a5_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 7d2bed7e3ef53504396c7518bc52ba66, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -97,6 +117,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _AmbientOcclusion: 0.5
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -109,8 +130,8 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FadeBorderOffset: 0.08
-    - _FadeOffset: 0.1
+    - _FadeBorderOffset: 0.17
+    - _FadeOffset: 0.55
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -118,12 +139,13 @@ Material:
     - _Metallic: 0
     - _NoiseFadeOffset: 0.1
     - _NoiseOffset: 0.08
-    - _NoiseScale: 1.07
+    - _NoiseScale: 0.12
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Sheen: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -136,7 +158,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Base: {r: 0.24586153, g: 0.6132076, b: 0.2597116, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.113698125, g: 1, b: 0.0990566, a: 1}
+    - _BaseColorInside: {r: 0.9716981, g: 0.42626378, b: 0.42626378, a: 0}
+    - _BaseColorOutside: {r: 0.41709685, g: 0.6719253, b: 0.8584906, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Lol: {r: 0, g: 18.90483, b: 32, a: 0}

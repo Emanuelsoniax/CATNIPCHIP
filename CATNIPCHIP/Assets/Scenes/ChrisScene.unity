@@ -797,7 +797,7 @@ Transform:
   m_GameObject: {fileID: 259267258}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.63, y: 3.39, z: -10.68}
+  m_LocalPosition: {x: -1.742, y: 3.39, z: -1.92}
   m_LocalScale: {x: 1, y: 3.49, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1930,6 +1930,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed34785dd85773a44a09b42141bedbf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transitionSettings:
+    transitionColor: {r: 4, g: 3.738298, b: 0, a: 1}
+    fadeOffset: 0.55
+    noiseFadeOffset: 0.17
+    noiseScale: 0.12
+    noiseTexture: {fileID: 2800000, guid: 7d2bed7e3ef53504396c7518bc52ba66, type: 3}
   _radialMaskManager:
     _masks:
     - {fileID: 14617760}
