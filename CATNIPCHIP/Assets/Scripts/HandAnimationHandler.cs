@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandAnimationHandler : MonoBehaviour
 {
     [SerializeField] private Transform _base;
     [SerializeField] private Transform _controller;
+    [SerializeField] private XRDirectInteractor _directInteractor;
     [SerializeField] private InputActionProperty _grabAction;
     [SerializeField] private InputActionProperty _pinchAction;
     [SerializeField] private Animator _animator;
@@ -22,6 +24,7 @@ public class HandAnimationHandler : MonoBehaviour
     [SerializeField, Range(0, 300)] private float _maxPositionChange = 75f;
     [SerializeField, Range(0, 300)] private float _maxRotationChange = 75f;
 
+    private bool IsHoldingObject => _directInteractor.hasSelection;
 
     private void OnValidate()
     {
@@ -42,10 +45,11 @@ public class HandAnimationHandler : MonoBehaviour
         _animator.SetFloat("Trigger", pinchValue);
 
         // Check if the hand is near any physics objects
-        if (!Physics.CheckSphere(_base.position + _trackingOffset, _startPhysicsTrackingRadius, _collisionMask, QueryTriggerInteraction.Ignore))
+        if (IsHoldingObject || !Physics.CheckSphere(_base.position + _trackingOffset, _startPhysicsTrackingRadius, _collisionMask, QueryTriggerInteraction.Ignore))
         {
             transform.position = _controller.position;
             transform.rotation = _controller.rotation;
+            return;
         }
 
         Vector3 newVelocity = FindNewVelocity();
@@ -65,7 +69,6 @@ public class HandAnimationHandler : MonoBehaviour
             _rigidbody.angularVelocity = Vector3.MoveTowards(_rigidbody.angularVelocity, newAngularVelocity, maxChange);
         }
     }
-
 
     private Vector3 FindNewVelocity()
     {

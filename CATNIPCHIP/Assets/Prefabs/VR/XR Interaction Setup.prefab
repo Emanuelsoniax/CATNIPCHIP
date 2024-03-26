@@ -3705,6 +3705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 1999160439967531173}
   _controller: {fileID: 8753824132347002294}
+  _directInteractor: {fileID: 2339203360656297737}
   _grabAction:
     m_UseReference: 1
     m_Action:
@@ -4999,6 +5000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 6400233642893973172}
   _controller: {fileID: 743365151798087820}
+  _directInteractor: {fileID: 5934343820299927292}
   _grabAction:
     m_UseReference: 1
     m_Action:
