@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StateMachine: MonoBehaviour
+public class StateMachine
 {
     [SerializeField]
     public Animator animator;
@@ -28,7 +28,7 @@ public class StateMachine: MonoBehaviour
         currentBehaviorState = state;
 
 #if UNITY_EDITOR
-        Debug.Log("Switched State to " + state, this);
+        Debug.Log("Switched State to " + state);
 #endif
 
         currentBehaviorState?.OnStart();
@@ -36,7 +36,7 @@ public class StateMachine: MonoBehaviour
 
     public void UpdateState(BaseState state)
     {
-        currentBehaviorState = state;
-        currentBehaviorState?.OnStart();
+        Debug.Log("hallo");
+        SwitchState(state);
     }
 }

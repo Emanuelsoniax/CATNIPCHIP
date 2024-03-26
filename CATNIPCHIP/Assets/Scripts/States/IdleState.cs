@@ -1,13 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Idle", menuName = "States/Idle", order = 1)]
 public class IdleState : BaseState
 {
-    public string animationTrigger;
-    public Animation idleAnimation;
+    public int idleAnimationIndex;
 
     public override void OnEnd()
     {
@@ -17,11 +13,14 @@ public class IdleState : BaseState
     public override void OnStart()
     {
         base.OnStart();
-        cat.animator?.SetTrigger(animationTrigger);
+        cat.controller.animator.SetFloat("IdleIndex", idleAnimationIndex);
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
     }
+
+
+
 }

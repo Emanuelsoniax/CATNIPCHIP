@@ -22,10 +22,10 @@ public class CatEditor : Editor
         if (Application.isPlaying)
         {
 
-            if (cat.currentBehaviorState != null)
+            if (cat.stateMachine.currentBehaviorState != null)
             {
                 Handles.color = Color.blue;
-                Handles.Label(cat.transform.position + Vector3.up * 2, cat.currentBehaviorState.name, style);
+                Handles.Label(cat.transform.position + Vector3.up * 2, cat.stateMachine.currentBehaviorState.name, style);
             }
 
         }
