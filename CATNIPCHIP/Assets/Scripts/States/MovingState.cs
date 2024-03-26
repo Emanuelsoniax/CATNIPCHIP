@@ -1,26 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "Moving", menuName = "States/Moving", order = 2)]
 public class MovingState : BaseState
 {
+    [Range(3f, 7f)]
     public float movementSpeed;
-    private float baseSpeed;
+
 
     public override void OnEnd()
     {
         base.OnEnd();
-        cat.GetComponent<NavMeshAgent>().speed = baseSpeed;
+        cat.controller.animator.SetBool("Move", false);
     }
 
     public override void OnStart()
     {
         base.OnStart();
-        baseSpeed = cat.GetComponent<NavMeshAgent>().speed;
-        cat.GetComponent<NavMeshAgent>().speed = movementSpeed;
+        cat.controller.animator.SetBool("Move", true);
+        cat.controller.movementSpeed = movementSpeed;
     }
 
     public override void OnUpdate()

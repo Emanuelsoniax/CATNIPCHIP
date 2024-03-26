@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8a4c954f3d7144abfb1cd5b29c8b3a, type: 3}
   m_Name: Idle
   m_EditorClassIdentifier: 
+  cat: {fileID: 0}
+  agent: {fileID: 0}
   animationTrigger: Test123
-  idleAnimation: {fileID: 0}
+  idleAnimationIndex: 1
