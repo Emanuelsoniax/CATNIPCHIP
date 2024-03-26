@@ -17,7 +17,8 @@ public class SmoothAgentMovement : MonoBehaviour
     [SerializeField]
     [Range(-1, 1)]
     private float SmoothingFactor = 0;
-    private NavMeshAgent agent;
+    [SerializeField]
+    public NavMeshAgent agent;
     private NavMeshPath CurrentPath;
     public Vector3[] PathLocations = new Vector3[0];
     [SerializeField]
@@ -36,6 +37,8 @@ public class SmoothAgentMovement : MonoBehaviour
     [SerializeField]
     private Vector3 MovementVector;
 
+    public float turn;
+
     [SerializeField]
     private float jumpHeight;
     [SerializeField]
@@ -47,11 +50,24 @@ public class SmoothAgentMovement : MonoBehaviour
 
     public event Action OnDestinationReached;
 
+    private Animator animator;
+
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
         CurrentPath = new NavMeshPath();
+        animator = GetComponent<Animator>();
     }
+
+    private void OnAnimatorMove()
+    {
+        Vector3 rootPosition = animator.rootPosition;
+        rootPosition.y = agent.nextPosition.y;
+        transform.position = rootPosition;
+        transform.rotation = animator.rootRotation;
+        agent.nextPosition = rootPosition;
+
+    }
+
 
     public void SetDestination(WaypointManager waypointManager)
     {
@@ -97,6 +113,9 @@ public class SmoothAgentMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookDirection), normalizedTime);
             normalizedTime += Time.deltaTime / turnDuration;
+
+            Vector3 worldDirection = transform.rotation * Vector3.forward;
+            turn = worldDirection.x;
             yield return null;
         }
 
@@ -166,10 +185,14 @@ public class SmoothAgentMovement : MonoBehaviour
                 transform.rotation,
                 Quaternion.LookRotation(lookDirection),
                 Mathf.Clamp01(LerpTime * TargetLerpSpeed * (1 - Smoothing))
+
+
             );
+                Vector3 worldDirection = transform.rotation * Vector3.forward;
+                turn = worldDirection.x;
         }
 
-        agent.Move(TargetDirection * agent.speed * Time.deltaTime);
+        agent.nextPosition = MovementVector;
 
         LerpTime += Time.deltaTime;
     }
@@ -330,8 +353,10 @@ public class SmoothAgentMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && debugLocations != null)
         {
+            Gizmos.DrawCube(agent.nextPosition, new Vector3(0.1f, 0.1f, 0.1f));
+
             if (debugLocations.Length >= 0)
             {
                 foreach (Vector3 position in debugLocations)

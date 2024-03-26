@@ -104,7 +104,8 @@ namespace FMOD_AudioManagement
 
         private EventReference GetEventReferenceFromDictionary(string eventName)
         {
-            return fmodEventsDictionary[eventName];
+            EventReference reference = RuntimeManager.PathToEventReference(eventName);
+            return fmodEventsDictionary[reference.ToString()];
         }
 
         private Dictionary<string, EventReference> FillEventsDictionary()
@@ -113,8 +114,8 @@ namespace FMOD_AudioManagement
 
             foreach (EventReference eRef in fmodEvents)
             {
-                string[] seperatedPath = eRef.Path.Split('/', StringSplitOptions.RemoveEmptyEntries);
-                toReturn.Add(seperatedPath[^1], eRef);
+                string seperatedPath = eRef.ToString();
+                toReturn.Add(seperatedPath, eRef);
             }
 
             return toReturn;

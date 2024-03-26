@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static System.Runtime.CompilerServices.RuntimeHelpers;
-
 
 public class Waypoint : MonoBehaviour
 {
@@ -15,31 +12,30 @@ public class Waypoint : MonoBehaviour
     [HideInInspector]
     public BaseState nextState;
 
+    public bool eventHappened = false;
     public event Action<BaseState> onWaitedForEvent;
+
+    private void Start()
+    {
+        //TODO: Listen to events that are a condition
+    }
+
 
     public Vector3 Position
     {
-        get { return transform.position; } 
-    } 
-
-    public IEnumerator WaitForEvent(KeyCode key)
-    {
-        yield return new WaitUntil(() => Input.GetKeyDown(key));
-
-        onWaitedForEvent?.Invoke(nextState);
-        state = nextState;
-        waypointType = WaypointType.PassThroughPoint;
-
-        yield return false;
+        get { return transform.position; }
     }
 
-    public IEnumerator WaitForEvent(Vector3 position)
+    public IEnumerator WaitForEvent(Func<bool> condition)
     {
-        yield return new WaitUntil(() => transform.position == position);
+        yield return new WaitUntil(() => condition());
 
+        state = nextState;
+        onWaitedForEvent?.Invoke(nextState);
         waypointType = WaypointType.PassThroughPoint;
+        eventHappened = false;
 
-        yield return false;
+        yield return null;
     }
 
     private void OnDrawGizmos()
@@ -55,15 +51,20 @@ public class Waypoint : MonoBehaviour
                 gizmosColor = Color.blue;
                 break;
             case WaypointType.JumpPoint:
-                 gizmosColor = Color.green;
-                 break;
-            default: 
+                gizmosColor = Color.green;
+                break;
+            default:
                 gizmosColor = Color.white;
                 break;
         }
 
         Gizmos.color = gizmosColor;
         Gizmos.DrawSphere(transform.position, 0.3f);
-
     }
+
+    public void EventHappened()
+    {
+        eventHappened = true;
+    }
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,16 +11,19 @@ public class WaypointManager
     [System.Serializable]
     public class WaypointCollection
     {
+        public bool canLoop;
         public Waypoint[] waypoints;
     }
 
     [SerializeField]
     public List<WaypointCollection> waypointCollections;
+    [SerializeField]
     private int currentCollection = 0;
     public WaypointCollection CurrentCollection
     {
         get { return waypointCollections[currentCollection]; }
     }
+    [SerializeField]
     private int currentWaypoint = 0;
     public Waypoint CurrentWaypoint
     {
@@ -53,18 +57,23 @@ public class WaypointManager
     public void SetNextWaypointAsCurrent()
     {
 
-        if(currentWaypoint < waypointCollections[currentCollection].waypoints.Length)
+        if(currentWaypoint < waypointCollections[currentCollection].waypoints.Length - 1)
         {
             currentWaypoint++;
-        }else if(currentWaypoint >= waypointCollections[currentCollection].waypoints.Length)
+        }
+        else if(currentWaypoint >= waypointCollections[currentCollection].waypoints.Length-1)
         {
+            if (waypointCollections[currentCollection].canLoop) {
+                currentWaypoint = 0;
+                return;
+            }
             currentCollection ++;
             currentWaypoint = 0;
         }
 
         if (CurrentWaypoint.waypointType == Waypoint.WaypointType.IdlePoint)
         {
-            CurrentWaypoint.StartCoroutine(CurrentWaypoint.WaitForEvent(KeyCode.K));
+            CurrentWaypoint.StartCoroutine(CurrentWaypoint.WaitForEvent(()=> CurrentWaypoint.eventHappened));
         }
 
     }
@@ -73,16 +82,31 @@ public class WaypointManager
     {
         Waypoint waypoint = null;
 
-        if (currentWaypoint < waypointCollections[currentCollection].waypoints.Length)
+        if (currentWaypoint < waypointCollections[currentCollection].waypoints.Length-1)
         {
             waypoint = waypointCollections[currentCollection].waypoints[currentWaypoint + 1];
         }
-        else if (currentWaypoint >= waypointCollections[currentCollection].waypoints.Length)
+        else if (currentWaypoint >= waypointCollections[currentCollection].waypoints.Length-1)
         {
+            if (waypointCollections[currentCollection].canLoop)
+            {
+                waypoint = waypointCollections[currentCollection].waypoints[0];
+                return waypoint;
+            }
             waypoint = waypointCollections[currentCollection + 1].waypoints[0];
         }
 
         return waypoint;
+    }
+
+    public void StartLoop()
+    {
+        waypointCollections[currentCollection].canLoop = true;
+    }
+
+    public void StopLoop()
+    {
+        waypointCollections[currentCollection].canLoop = false;
     }
 
 }

@@ -566,10 +566,11 @@ MonoBehaviour:
   EnableErrorCallback: 0
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
-  CurrentVersion: 131616
+  CurrentVersion: 131617
   HideSetupWizard: 1
   LastEventReferenceScanVersion: 131616
   Platforms:
+  - {fileID: 4047786866324863966}
   - {fileID: -8908499245049943053}
   - {fileID: -7538299613147205978}
   - {fileID: -7210690613283558068}
@@ -581,7 +582,7 @@ MonoBehaviour:
   - {fileID: 4350994306702598794}
   - {fileID: 4800306091551882853}
   - {fileID: 7152512545011131989}
-  MigratedPlatforms: 0500000012000000060000000b000000080000000a000000090000000c000000150000000200000001000000
+  MigratedPlatforms: 0500000012000000060000000b000000080000000a000000090000000c00000015000000020000000100000000000000
 --- !u!114 &2411574423961355046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +606,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 1
+      Value: 2
       HasValue: 1
     OverlayPosition:
       Value: 0
@@ -631,6 +632,79 @@ MonoBehaviour:
     RealChannelCount:
       Value: 256
       HasValue: 1
+    DSPBufferLength:
+      Value: 0
+      HasValue: 0
+    DSPBufferCount:
+      Value: 0
+      HasValue: 0
+    Plugins:
+      Value: []
+      HasValue: 0
+    StaticPlugins:
+      Value: []
+      HasValue: 0
+    CallbackHandler:
+      Value: {fileID: 0}
+      HasValue: 0
+  OutputTypeName: 
+  threadAffinities:
+    Value: []
+    HasValue: 0
+  displaySortOrder: 0
+  childIdentifiers: []
+  codecChannels:
+    Value: []
+    HasValue: 0
+--- !u!114 &4047786866324863966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f591a193113347409efedcc618e83d6, type: 3}
+  m_Name: FMODStudioSettingsPlatform
+  m_EditorClassIdentifier: 
+  identifier: de700ef3f37a49b58a57ae3addf01ad9
+  parentIdentifier: default
+  active: 0
+  Properties:
+    LiveUpdate:
+      Value: 0
+      HasValue: 0
+    LiveUpdatePort:
+      Value: 0
+      HasValue: 0
+    Overlay:
+      Value: 0
+      HasValue: 0
+    OverlayPosition:
+      Value: 0
+      HasValue: 0
+    OverlayFontSize:
+      Value: 0
+      HasValue: 0
+    Logging:
+      Value: 0
+      HasValue: 0
+    SampleRate:
+      Value: 0
+      HasValue: 0
+    BuildDirectory:
+      Value: 
+      HasValue: 0
+    SpeakerMode:
+      Value: 0
+      HasValue: 0
+    VirtualChannelCount:
+      Value: 0
+      HasValue: 0
+    RealChannelCount:
+      Value: 0
+      HasValue: 0
     DSPBufferLength:
       Value: 0
       HasValue: 0
@@ -798,6 +872,7 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
+  - de700ef3f37a49b58a57ae3addf01ad9
   - fd7c55dab0fce234b8c25f6ffca523c1
   - 46fbfdf3fc43db0458918377fd40293e
   - e7a046c753c3c3d4aacc91f6597f310d
